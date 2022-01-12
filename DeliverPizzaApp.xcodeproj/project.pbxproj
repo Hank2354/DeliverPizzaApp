@@ -26,6 +26,8 @@
 		41B518B9278F52BC00C50522 /* MenuPresenterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518B8278F52BC00C50522 /* MenuPresenterType.swift */; };
 		41B518BB278F52C600C50522 /* MenuRouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518BA278F52C600C50522 /* MenuRouterType.swift */; };
 		41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518BC278F52CD00C50522 /* MenuAssemblyType.swift */; };
+		41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C0278F58C600C50522 /* Extension UIImage.swift */; };
+		41B518C3278F5BD000C50522 /* Extension UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C2278F5BD000C50522 /* Extension UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		41B518B8278F52BC00C50522 /* MenuPresenterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenterType.swift; sourceTree = "<group>"; };
 		41B518BA278F52C600C50522 /* MenuRouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouterType.swift; sourceTree = "<group>"; };
 		41B518BC278F52CD00C50522 /* MenuAssemblyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssemblyType.swift; sourceTree = "<group>"; };
+		41B518C0278F58C600C50522 /* Extension UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIImage.swift"; sourceTree = "<group>"; };
+		41B518C2278F5BD000C50522 /* Extension UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			children = (
 				41B5189F278F50A600C50522 /* Application */,
 				41B5189A278F4FA500C50522 /* Managers */,
+				41B518BF278F588600C50522 /* General extensions */,
 				41B51899278F4F2000C50522 /* Supporting files */,
 			);
 			path = DeliverPizzaApp;
@@ -178,6 +183,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		41B518BF278F588600C50522 /* General extensions */ = {
+			isa = PBXGroup;
+			children = (
+				41B518C0278F58C600C50522 /* Extension UIImage.swift */,
+				41B518C2278F5BD000C50522 /* Extension UIColor.swift */,
+			);
+			path = "General extensions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,9 +267,11 @@
 				41B5189E278F4FF800C50522 /* NetworkManager.swift in Sources */,
 				41B5189C278F4FBD00C50522 /* CoreDataManager.swift in Sources */,
 				41B518B7278F52B400C50522 /* MenuInteractorType.swift in Sources */,
+				41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */,
 				41B518B1278F528B00C50522 /* MenuRouter.swift in Sources */,
 				41B518AB278F527000C50522 /* MenuViewController.swift in Sources */,
 				41B518B5278F52A600C50522 /* MenuViewControllerType.swift in Sources */,
+				41B518C3278F5BD000C50522 /* Extension UIColor.swift in Sources */,
 				41B51881278F4D8F00C50522 /* AppDelegate.swift in Sources */,
 				41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */,
 				41B518A2278F515B00C50522 /* MainTabBar.swift in Sources */,

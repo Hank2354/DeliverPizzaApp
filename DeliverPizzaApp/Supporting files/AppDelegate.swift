@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
+        let mainTabBar = MainTabBar()
+        window?.rootViewController = mainTabBar
+        
         
         return true
     }
