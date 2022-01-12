@@ -9,4 +9,7 @@ import Foundation
 
 class MenuInteractor: MenuInteractorType {
     
+    var presenter: MenuPresenterType?
+    
+    
 }

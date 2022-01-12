@@ -9,4 +9,11 @@ import Foundation
 
 class MenuPresenter: MenuPresenterType {
     
+    var view: MenuViewControllerType?
+    
+    var interactor: MenuInteractorType?
+    
+    var router: MenuRouterType?
+    
+    
 }

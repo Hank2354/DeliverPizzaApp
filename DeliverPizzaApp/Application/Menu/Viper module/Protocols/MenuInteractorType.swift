@@ -9,4 +9,5 @@ import Foundation
 
 protocol MenuInteractorType {
     
+    var presenter: MenuPresenterType? { get set }
 }

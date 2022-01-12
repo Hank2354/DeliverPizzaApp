@@ -10,4 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController, MenuViewControllerType {
     
+    var presenter: MenuPresenterType?
+    
+    
 }

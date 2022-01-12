@@ -9,4 +9,9 @@ import Foundation
 
 protocol MenuPresenterType {
     
+    var view: MenuViewControllerType? { get set }
+    
+    var interactor: MenuInteractorType? { get set }
+    
+    var router: MenuRouterType? { get set }
 }

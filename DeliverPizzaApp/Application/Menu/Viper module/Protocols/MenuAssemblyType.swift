@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MenuAssemblyType {
+    
+    static func start() -> MenuRouterType
     
 }

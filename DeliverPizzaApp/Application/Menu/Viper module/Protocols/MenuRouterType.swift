@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
+typealias MenuEntryPoint = MenuViewControllerType & UIViewController
 
 protocol MenuRouterType {
+    
+    var entryPoint: MenuEntryPoint? { get set }
     
 }
