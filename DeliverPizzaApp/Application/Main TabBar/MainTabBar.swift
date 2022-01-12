@@ -17,6 +17,8 @@ class MainTabBar: UITabBarController {
         
         guard let viewController = viewController else { return UIViewController() }
         
+        let navigationVC = UINavigationController(rootViewController: viewController)
+        
         let customTabBarItem: UITabBarItem = UITabBarItem(title: tabBarString,
                                                           image: .tabLogoMenu,
                                                           selectedImage: .tabLogoMenu?
@@ -26,9 +28,9 @@ class MainTabBar: UITabBarController {
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemDefaultColor], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemSelectedColor], for: .normal)
         
-        viewController.tabBarItem = customTabBarItem
+        navigationVC.tabBarItem = customTabBarItem
         
-        return viewController
+        return navigationVC
         
     }
     
