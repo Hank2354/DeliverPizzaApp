@@ -1,6 +1,6 @@
 {
   "Post": {
-    "category": { "string": {} },
+    "category": { "string": ["Пицца", "Закуски", "Снеки", "Десерты", "Детское"] },
     "name": { "string": {} },
     "desc": { "string": {} },
     "imageURL": { "string": {} },
