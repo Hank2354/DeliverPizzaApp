@@ -1,9 +1,24 @@
 {
-  "Post": {
-    "category": { "string": ["Пицца", "Закуски", "Снеки", "Десерты", "Детское"] },
+  "Menu": {
+    "Pizza": {
+      "hasMany": "Pizza"
+    },
+    "Desert": {
+      "hasMany": "Desert"
+    },
+  },
+  "Pizza": {
+    "category": { "string": ["Пицца"] },
     "name": { "string": {} },
     "desc": { "string": {} },
     "imageURL": { "string": {} },
     "minPrice": { "string": {} }
-  }
+  },
+  "Desert": {
+    "category": { "string": ["Десерты"] },
+    "name": { "string": {} },
+    "desc": { "string": {} },
+    "imageURL": { "string": {} },
+    "minPrice": { "string": {} }
+  },
 }
