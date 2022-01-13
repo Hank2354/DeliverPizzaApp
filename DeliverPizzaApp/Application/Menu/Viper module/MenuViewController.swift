@@ -16,6 +16,17 @@ class MenuViewController: UIViewController, MenuViewControllerType {
     var currentHeaderConstraint: NSLayoutConstraint?
     
     // MARK: - UI Elements
+    lazy var mainScrollView: UIScrollView = {
+        
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.isScrollEnabled = false
+        view.alwaysBounceVertical = true
+        
+        return view
+    }()
+    
     lazy var headerView: HeaderView = {
         
         let view = HeaderView(frame: .zero)
@@ -37,6 +48,8 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.isScrollEnabled = true
         
         tableView.layer.cornerRadius = 32
         tableView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -61,19 +74,26 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         
         var constraints = [NSLayoutConstraint]()
         
-        constraints.append(headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
-        constraints.append(headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
-        constraints.append(headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        constraints.append(mainScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+        constraints.append(mainScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(mainScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        constraints.append(mainScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
+        
+        constraints.append(headerView.topAnchor.constraint(equalTo: mainScrollView.topAnchor))
+        constraints.append(headerView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor))
+        constraints.append(headerView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor))
         currentHeaderConstraint = headerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.3)
         currentHeaderConstraint?.isActive = true
         
         constraints.append(footerTableView.topAnchor.constraint(equalTo: headerView.bottomAnchor))
-        constraints.append(footerTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
-        constraints.append(footerTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
-        constraints.append(footerTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+        constraints.append(footerTableView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor))
+        constraints.append(footerTableView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor))
+        constraints.append(footerTableView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width))
+        constraints.append(footerTableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.8))
+        constraints.append(footerTableView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor))
         
-        constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor))
-        constraints.append(activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor))
+        constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor))
+        constraints.append(activityIndicator.centerYAnchor.constraint(equalTo: mainScrollView.centerYAnchor))
         constraints.append(activityIndicator.widthAnchor.constraint(equalToConstant: 50))
         constraints.append(activityIndicator.heightAnchor.constraint(equalTo: activityIndicator.widthAnchor))
         
@@ -92,9 +112,10 @@ class MenuViewController: UIViewController, MenuViewControllerType {
     override func loadView()     {
         super.loadView()
         
-        view.addSubview(headerView)
-        view.addSubview(footerTableView)
-        view.addSubview(activityIndicator)
+        view.addSubview(mainScrollView)
+        mainScrollView.addSubview(headerView)
+        mainScrollView.addSubview(footerTableView)
+        mainScrollView.addSubview(activityIndicator)
         
         view.backgroundColor = .backgroundApplicationColor
         
@@ -108,5 +129,6 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         configureNavBar()
         
         presenter?.viewDidLoaded()
+
     }
 }
