@@ -19,6 +19,12 @@
       "Лосось, томаты черри, моцарелла, соус песто",
       "Соус Карбонара, Сыр Моцарелла, Сыр Пармезан, Сыр Роккфорти, Сыр Чеддер (тёртый)"
     ] },
-    "minPrice": { "int": [345] }
+     "imageURL": { "string": [
+      "https://i.yapx.ru/QF13A.png",
+      "https://i.yapx.ru/QF13B.png",
+      "https://i.yapx.ru/QF13C.png",
+      "https://i.yapx.ru/QF13E.png"
+    ] },
+    "minPrice": { "int": 345 }
   }
 }
