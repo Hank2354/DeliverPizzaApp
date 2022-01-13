@@ -12,4 +12,5 @@ struct ProductModel {
     let positionName: String
     let positionDescription: String?
     let minPrice: Decimal
+    let category: String
 }

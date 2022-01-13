@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MenuInteractorType {
+protocol MenuInteractorType: AnyObject {
     
     var presenter: MenuPresenterType? { get set }
 }

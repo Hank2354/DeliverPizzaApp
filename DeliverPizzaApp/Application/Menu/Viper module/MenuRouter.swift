@@ -9,7 +9,7 @@ import Foundation
 
 class MenuRouter: MenuRouterType {
     
-    weak var entryPoint: MenuEntryPoint?
+    var entryPoint: MenuEntryPoint?
     
     
 }

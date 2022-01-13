@@ -11,9 +11,9 @@ class MenuAssembly: MenuAssemblyType {
     
     static func start() -> MenuRouterType {
         
-        var router:      MenuRouterType          =  MenuRouter()
+        let router:      MenuRouterType          =  MenuRouter()
         let view:        MenuViewControllerType  =  MenuViewController()
-        var interactor:  MenuInteractorType      =  MenuInteractor()
+        let interactor:  MenuInteractorType      =  MenuInteractor()
         let presenter:   MenuPresenterType       =  MenuPresenter()
         
         presenter.view        =  view

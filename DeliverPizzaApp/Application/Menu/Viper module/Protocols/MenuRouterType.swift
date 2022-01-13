@@ -10,7 +10,7 @@ import UIKit
 
 typealias MenuEntryPoint = MenuViewControllerType & UIViewController
 
-protocol MenuRouterType {
+protocol MenuRouterType: AnyObject {
     
     var entryPoint: MenuEntryPoint? { get set }
     
