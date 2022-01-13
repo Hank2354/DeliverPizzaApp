@@ -26,7 +26,7 @@ class MainTabBar: UITabBarController {
                                                             .withTintColor(.tabBarItemSelectedColor))
         
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemDefaultColor], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemSelectedColor], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemSelectedColor], for: .selected)
         
         navigationVC.tabBarItem = customTabBarItem
         
