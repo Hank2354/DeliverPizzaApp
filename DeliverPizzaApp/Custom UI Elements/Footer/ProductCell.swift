@@ -57,7 +57,7 @@ class ProductCell: UITableViewCell {
         
         imageView.image = .loadPizza
         
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -70,6 +70,9 @@ class ProductCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textColor = .label
         label.textAlignment = .left
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
         
         label.numberOfLines = 2
         
@@ -84,6 +87,12 @@ class ProductCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textColor = .placeholderText
         label.textAlignment = .left
+        
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
+        
+        label.textAlignment = .left
+        label.sizeToFit()
         
         label.numberOfLines = 0
         
@@ -144,8 +153,8 @@ class ProductCell: UITableViewCell {
         
         constraints.append(productDescription.leadingAnchor.constraint(equalTo: productTitle.leadingAnchor))
         constraints.append(productDescription.trailingAnchor.constraint(equalTo: productTitle.trailingAnchor))
-        constraints.append(productDescription.topAnchor.constraint(equalTo: productTitle.bottomAnchor, constant: 10))
-        constraints.append(productDescription.bottomAnchor.constraint(equalTo: priceButton.topAnchor, constant: -10))
+        constraints.append(productDescription.topAnchor.constraint(equalTo: productTitle.bottomAnchor, constant: 5))
+        constraints.append(productDescription.bottomAnchor.constraint(lessThanOrEqualTo: priceButton.topAnchor, constant: -2))
         
         constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor))
         constraints.append(activityIndicator.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -20))

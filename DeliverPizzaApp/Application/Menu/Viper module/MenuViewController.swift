@@ -38,7 +38,8 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.bounces = true
+        tableView.layer.cornerRadius = 32
+        tableView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         tableView.register(ProductCell.self, forCellReuseIdentifier: "productCell")
         
@@ -79,6 +80,13 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         NSLayoutConstraint.activate(constraints)
     }
     
+    func configureNavBar() {
+        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Москва ∨", style: .plain, target: nil, action: nil)
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
     // MARK: - ViewController life cycle
     
     override func loadView()     {
@@ -97,6 +105,7 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         super.viewDidLoad()
 
         setupConstraints()
+        configureNavBar()
         
         presenter?.viewDidLoaded()
     }
