@@ -11,8 +11,22 @@ import UIKit
 class HeaderView: UIView {
     
     // MARK: - Properties
-    var discounts  =  [DiscountItemModel]()
-    var categories =  [String]()
+    var discounts  =  [DiscountItemModel]()  {
+        
+        didSet {
+            discountsCollectionView.reloadData()
+        }
+        
+    }
+    
+    var categories =  [String]()             {
+        
+        didSet {
+            categoriesCollectionView.reloadData()
+        }
+        
+    }
+    
     var delegate:     CategoryCollectionViewDelegate?
     
     let discountItemWidth  = UIScreen.main.bounds.width * 0.8
@@ -97,11 +111,8 @@ class HeaderView: UIView {
     }
     
     // MARK: - INIT
-    init(discounts: [DiscountItemModel], categories: [String])  {
-        super.init(frame: .zero)
-        
-        self.discounts = discounts
-        self.categories = categories
+    override init(frame: CGRect)                                {
+        super .init(frame: frame)
         
         config()
     }
