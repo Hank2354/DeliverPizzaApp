@@ -5,7 +5,7 @@
     },
     "Desert": {
       "hasMany": "Desert"
-    },
+    }
   },
   "Pizza": {
     "category": { "string": ["Пицца"] },
