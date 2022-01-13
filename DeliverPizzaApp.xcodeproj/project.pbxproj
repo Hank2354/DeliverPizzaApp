@@ -38,6 +38,8 @@
 		41B518D5278F89FA00C50522 /* CategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */; };
 		41B518D7278F964E00C50522 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */; };
 		41B518D9278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */; };
+		41B518DC278FB9C000C50522 /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518DB278FB9C000C50522 /* FooterTableView.swift */; };
+		41B518E0278FBAEC00C50522 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518DF278FBAEC00C50522 /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 		41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		41B518DB278FB9C000C50522 /* FooterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableView.swift; sourceTree = "<group>"; };
+		41B518DF278FBAEC00C50522 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				41B5189A278F4FA500C50522 /* Managers */,
 				41B518BF278F588600C50522 /* General extensions */,
 				41B518C4278F70A900C50522 /* Custom UI Elements */,
+				41B518DD278FBA0600C50522 /* Entities */,
 				41B51899278F4F2000C50522 /* Supporting files */,
 			);
 			path = DeliverPizzaApp;
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				41B518C7278F728B00C50522 /* Header */,
+				41B518DA278FB98D00C50522 /* Footer */,
 			);
 			path = "Custom UI Elements";
 			sourceTree = "<group>";
@@ -225,17 +231,41 @@
 		41B518C7278F728B00C50522 /* Header */ = {
 			isa = PBXGroup;
 			children = (
+				41B518DE278FBA2000C50522 /* Extensions */,
 				41B518C5278F70C300C50522 /* HeaderView.swift */,
-				41B518C8278F72FF00C50522 /* DiscountItemModel.swift */,
 				41B518CA278F7B2800C50522 /* DiscountCell.swift */,
 				41B518D2278F86A400C50522 /* CategoryCell.swift */,
-				41B518CC278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift */,
-				41B518CE278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift */,
-				41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */,
 				41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */,
 				41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		41B518DA278FB98D00C50522 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				41B518DB278FB9C000C50522 /* FooterTableView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		41B518DD278FBA0600C50522 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				41B518C8278F72FF00C50522 /* DiscountItemModel.swift */,
+				41B518DF278FBAEC00C50522 /* ProductModel.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		41B518DE278FBA2000C50522 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				41B518CC278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift */,
+				41B518CE278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift */,
+				41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,6 +341,7 @@
 			files = (
 				41B518A7278F51DB00C50522 /* EmptyViewController.swift in Sources */,
 				41B5189E278F4FF800C50522 /* NetworkManager.swift in Sources */,
+				41B518DC278FB9C000C50522 /* FooterTableView.swift in Sources */,
 				41B5189C278F4FBD00C50522 /* CoreDataManager.swift in Sources */,
 				41B518B7278F52B400C50522 /* MenuInteractorType.swift in Sources */,
 				41B518D9278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift in Sources */,
@@ -327,6 +358,7 @@
 				41B518CB278F7B2800C50522 /* DiscountCell.swift in Sources */,
 				41B51881278F4D8F00C50522 /* AppDelegate.swift in Sources */,
 				41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */,
+				41B518E0278FBAEC00C50522 /* ProductModel.swift in Sources */,
 				41B518A2278F515B00C50522 /* MainTabBar.swift in Sources */,
 				41B518CD278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift in Sources */,
 				41B5188B278F4D8F00C50522 /* DeliverPizzaApp.xcdatamodeld in Sources */,
