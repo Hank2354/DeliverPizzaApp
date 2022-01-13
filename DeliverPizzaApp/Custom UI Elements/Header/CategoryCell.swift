@@ -10,8 +10,8 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell {
     
-    // Properties
-    var categoryTitle: String? {
+    // MARK: - Properties
+    var categoryTitle: String?     {
         
         didSet {
             titleLabel.text = categoryTitle
@@ -19,7 +19,7 @@ class CategoryCell: UICollectionViewCell {
         
     }
     
-    // UI Elements
+    // MARK: - UI Elements
     lazy var titleLabel: UILabel = {
         
         let label = UILabel()
@@ -32,7 +32,8 @@ class CategoryCell: UICollectionViewCell {
         return label
     }()
     
-    func config() {
+    // MARK: - Configuration methods
+    func config()                  {
         
         self.layer.cornerRadius = 16
         self.layer.borderWidth = 1
@@ -48,7 +49,7 @@ class CategoryCell: UICollectionViewCell {
         ])
     }
     
-    override var isSelected: Bool {
+    override var isSelected: Bool  {
         
         didSet {
             
@@ -72,7 +73,8 @@ class CategoryCell: UICollectionViewCell {
         
     }
     
-    override init(frame: CGRect) {
+    // MARK: - INIT
+    override init(frame: CGRect)   {
         super .init(frame: frame)
         
         config()

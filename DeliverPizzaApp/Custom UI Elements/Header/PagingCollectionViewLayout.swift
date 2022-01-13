@@ -65,13 +65,6 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
         // get number of nextPage
         var nextPage: CGFloat = nextOrCurrentPage + (speed > 0 ? 1 : -1)
         
-        // To find out where the user swiped, we can use scroll velocity, but if it will be high, we get we skip one page
-        // We need reduce speed.
-        
-        let reducedSpeed = speed / 2
-        // Round up or down depending on scroll direction
-        nextPage += (speed < 0) ? ceil(reducedSpeed) : floor(reducedSpeed)
-        
         // return the offset required for correct display selected page
         if scrollDirection == .horizontal {
             return CGPoint(x: nextPage * pageLength, y: 0)

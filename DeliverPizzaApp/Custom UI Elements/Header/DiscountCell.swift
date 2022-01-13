@@ -10,7 +10,7 @@ import UIKit
 
 class DiscountCell: UICollectionViewCell {
     
-    // Properties
+    // MARK: - Properties
     var mainImage: UIImage? {
         
         didSet {
@@ -19,7 +19,7 @@ class DiscountCell: UICollectionViewCell {
         
     }
     
-    // UI Elements
+    // MARK: - UI Elements
     lazy var discountImageView: UIImageView = {
         
         let imageView = UIImageView()
@@ -29,6 +29,7 @@ class DiscountCell: UICollectionViewCell {
         return imageView
     }()
     
+    // MARK: - Configuration methods
     func config() {
         
         addSubview(discountImageView)
@@ -43,6 +44,7 @@ class DiscountCell: UICollectionViewCell {
         ])
     }
     
+    // MARK: - INIT
     override init(frame: CGRect) {
         super .init(frame: frame)
         

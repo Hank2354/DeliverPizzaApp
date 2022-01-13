@@ -10,15 +10,15 @@ import UIKit
 
 class HeaderView: UIView {
     
-    // Properties
-    var discounts = [DiscountItemModel]()
-    var categories = [String]()
-    var delegate: CategoryCollectionViewDelegate?
+    // MARK: - Properties
+    var discounts  =  [DiscountItemModel]()
+    var categories =  [String]()
+    var delegate:     CategoryCollectionViewDelegate?
     
-    let discountItemWidth = UIScreen.main.bounds.width * 0.8
+    let discountItemWidth  = UIScreen.main.bounds.width * 0.8
     let discountItemHeight = UIScreen.main.bounds.height / 6
     
-    // UI Elements
+    // MARK: - UI Elements
     lazy var discountsCollectionView:   UICollectionView  =  {
         
         let layout = PagingCollectionViewLayout()
@@ -75,8 +75,8 @@ class HeaderView: UIView {
         
     }()
     
-    // Configuration methods
-    func config() {
+    // MARK: - Configuration methods
+    func config()                                               {
         
         addSubview(discountsCollectionView)
         addSubview(categoriesCollectionView)
@@ -96,7 +96,8 @@ class HeaderView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
-    init(discounts: [DiscountItemModel], categories: [String]) {
+    // MARK: - INIT
+    init(discounts: [DiscountItemModel], categories: [String])  {
         super.init(frame: .zero)
         
         self.discounts = discounts
@@ -105,7 +106,7 @@ class HeaderView: UIView {
         config()
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder: NSCoder)                              {
         fatalError("init(coder:) has not been implemented")
     }
 }
