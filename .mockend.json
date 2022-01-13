@@ -5,7 +5,7 @@
       "Комбо",
       "Десерты",
       "Напитки",
-      "Детское",
+      "Детское"
     ] },
     "name": { "string": [
       "Ветчина и грибы",
@@ -25,6 +25,6 @@
       "https://i.yapx.ru/QF13C.png",
       "https://i.yapx.ru/QF13E.png"
     ] },
-    "minPrice": { "int": 345 }
+    "minPrice": { "int": [345] }
   }
 }
