@@ -62,6 +62,7 @@ class ProductCell: UITableViewCell {
         return button
     }()
     
+    // MARK: - Configuration methods
     func config() {
         
         addSubview(productImageView)

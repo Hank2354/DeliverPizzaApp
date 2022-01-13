@@ -18,7 +18,10 @@ extension MenuViewController: UITableViewDelegate {
         
         let offset = scrollView.contentOffset.y
         
-        currentHeaderConstraint?.constant = currentHeaderViewHeight - (offset < allowableOffset ? offset : allowableOffset)
+        if offset > 0 {
+            currentHeaderConstraint?.constant = currentHeaderViewHeight - (offset < allowableOffset ? offset : allowableOffset)
+        }
+        
 
         
         
