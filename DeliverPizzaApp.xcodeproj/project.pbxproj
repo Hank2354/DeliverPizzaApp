@@ -40,6 +40,9 @@
 		41B518D9278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */; };
 		41B518DC278FB9C000C50522 /* FooterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518DB278FB9C000C50522 /* FooterTableView.swift */; };
 		41B518E0278FBAEC00C50522 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518DF278FBAEC00C50522 /* ProductModel.swift */; };
+		41E564FF279019F4009D2574 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E564FE279019F4009D2574 /* ProductCell.swift */; };
+		41E5650127901A41009D2574 /* MenuUITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650027901A41009D2574 /* MenuUITableViewDelegate.swift */; };
+		41E5650327901A4E009D2574 /* MenuUITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +81,9 @@
 		41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		41B518DB278FB9C000C50522 /* FooterTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTableView.swift; sourceTree = "<group>"; };
 		41B518DF278FBAEC00C50522 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		41E564FE279019F4009D2574 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		41E5650027901A41009D2574 /* MenuUITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUITableViewDelegate.swift; sourceTree = "<group>"; };
+		41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUITableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */,
+				41E5650027901A41009D2574 /* MenuUITableViewDelegate.swift */,
+				41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				41B518DB278FB9C000C50522 /* FooterTableView.swift */,
+				41E564FE279019F4009D2574 /* ProductCell.swift */,
 			);
 			path = Footer;
 			sourceTree = "<group>";
@@ -348,7 +357,9 @@
 				41B518D3278F86A400C50522 /* CategoryCell.swift in Sources */,
 				41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */,
 				41B518B1278F528B00C50522 /* MenuRouter.swift in Sources */,
+				41E5650127901A41009D2574 /* MenuUITableViewDelegate.swift in Sources */,
 				41B518C6278F70C300C50522 /* HeaderView.swift in Sources */,
+				41E564FF279019F4009D2574 /* ProductCell.swift in Sources */,
 				41B518AB278F527000C50522 /* MenuViewController.swift in Sources */,
 				41B518D1278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift in Sources */,
 				41B518B5278F52A600C50522 /* MenuViewControllerType.swift in Sources */,
@@ -369,6 +380,7 @@
 				41B518AD278F527B00C50522 /* MenuInteractor.swift in Sources */,
 				41B518AF278F528100C50522 /* MenuPresenter.swift in Sources */,
 				41B518D5278F89FA00C50522 /* CategoryCollectionViewDelegate.swift in Sources */,
+				41E5650327901A4E009D2574 /* MenuUITableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
