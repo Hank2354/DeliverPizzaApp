@@ -12,7 +12,12 @@ class MainTabBar: UITabBarController {
     
     fileprivate func initMenuModule(tabBarString: String) -> UIViewController {
         
-        let vc = UIViewController()
+        let menuRouter = MenuAssembly.start()
+        let viewController = menuRouter.entryPoint
+        
+        guard let viewController = viewController else { return UIViewController() }
+        
+        let navigationVC = UINavigationController(rootViewController: viewController)
         
         let customTabBarItem: UITabBarItem = UITabBarItem(title: tabBarString,
                                                           image: .tabLogoMenu,
@@ -21,14 +26,11 @@ class MainTabBar: UITabBarController {
                                                             .withTintColor(.tabBarItemSelectedColor))
         
         UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemDefaultColor], for: .normal)
-        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemSelectedColor], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([.foregroundColor : UIColor.tabBarItemSelectedColor], for: .selected)
         
+        navigationVC.tabBarItem = customTabBarItem
         
-        vc.view.backgroundColor = .systemGreen
-        
-        vc.tabBarItem = customTabBarItem
-        
-        return vc
+        return navigationVC
         
     }
     

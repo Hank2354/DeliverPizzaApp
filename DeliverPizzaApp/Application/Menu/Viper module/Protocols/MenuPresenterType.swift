@@ -7,6 +7,11 @@
 
 import Foundation
 
-protocol MenuPresenterType {
+protocol MenuPresenterType: AnyObject {
     
+    var view: MenuViewControllerType? { get set }
+    
+    var interactor: MenuInteractorType? { get set }
+    
+    var router: MenuRouterType? { get set }
 }
