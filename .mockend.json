@@ -4,6 +4,6 @@
     "name": { "string": {} },
     "desc": { "string": {} },
     "imageURL": { "string": {} },
-    "minPrice": { "string": {} },
+    "minPrice": { "string": {} }
   }
 }
