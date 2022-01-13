@@ -18,4 +18,6 @@ protocol MenuPresenterType: AnyObject {
     func discountDataIsFetched(discounts: DiscountItemModels)
     
     func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?)
+    
+    func viewDidLoaded()
 }

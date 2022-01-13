@@ -9,6 +9,10 @@ import UIKit
 
 class FooterTableView: UITableView {
 
-    
+    var items = [ProductModel]() {
+        didSet {
+            self.reloadData()
+        }
+    }
 
 }

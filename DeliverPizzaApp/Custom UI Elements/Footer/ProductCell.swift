@@ -10,16 +10,57 @@ import UIKit
 
 class ProductCell: UITableViewCell {
     
+    // MARK: - Properties
+    
+    private var dataTask: URLSessionDataTask?
+    
+    var category: String = ""
+    
+    var imageURLString: String? = "" {
+        
+        // When will set new image url, will be fetched image and set into imageView
+        didSet {
+            
+            // Get data in not main queue (use utility qos)
+            DispatchQueue.global(qos: .utility).async { [unowned self] in
+                
+                guard imageURLString    != "",
+                      let imageURLString = self.imageURLString,
+                      let imageURL       = URL(string: imageURLString) else {
+                          
+                          // if we can't get imageData, set default image
+                          DispatchQueue.main.async {
+                              
+                              self.productImageView.image = UIImage.defaultPizza
+                              self.activityIndicator.stopAnimating()
+                              
+                          }
+                          
+                          return
+                          
+                      }
+                
+                loadImage(imageURL: imageURL)
+                
+            }
+            
+            
+        }
+        
+    }
+    
     // MARK: - UI Elements
-    lazy var productImageView: UIImageView = {
+    lazy var productImageView:   UIImageView             = {
         
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
+        imageView.image = .loadPizza
+        
         return imageView
     }()
     
-    lazy var productTitle: UILabel = {
+    lazy var productTitle:       UILabel                 = {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +74,7 @@ class ProductCell: UITableViewCell {
         return label
     }()
     
-    lazy var productDescription: UILabel = {
+    lazy var productDescription: UILabel                 = {
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +88,7 @@ class ProductCell: UITableViewCell {
         return label
     }()
     
-    lazy var priceButton: UIButton = {
+    lazy var priceButton:        UIButton                = {
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +103,16 @@ class ProductCell: UITableViewCell {
         return button
     }()
     
+    lazy var activityIndicator:  UIActivityIndicatorView = {
+        
+        let indicator = UIActivityIndicatorView()
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        indicator.startAnimating()
+        
+        return indicator
+    }()
+    
     // MARK: - Configuration methods
     func config() {
         
@@ -69,6 +120,8 @@ class ProductCell: UITableViewCell {
         addSubview(productTitle)
         addSubview(productDescription)
         addSubview(priceButton)
+        
+        productImageView.addSubview(activityIndicator)
         
         var constraints = [NSLayoutConstraint]()
         
@@ -92,6 +145,51 @@ class ProductCell: UITableViewCell {
         constraints.append(productDescription.topAnchor.constraint(equalTo: productTitle.bottomAnchor, constant: 10))
         constraints.append(productDescription.bottomAnchor.constraint(equalTo: priceButton.topAnchor, constant: -10))
         
+        constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor))
+        constraints.append(activityIndicator.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -20))
+        
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    fileprivate func loadImage(imageURL: URL) {
+        
+        // init data task
+        dataTask = URLSession.shared.dataTask(with: imageURL, completionHandler: { data, response, error in
+            
+            // if image loaded success, update imageView in main thread
+            if let data = data,
+               let image = UIImage(data: data) {
+                
+                DispatchQueue.main.async { [unowned self] in
+                    
+                    self.productImageView.image = image
+                    activityIndicator.stopAnimating()
+                    
+                }
+                
+            } else {
+                
+                DispatchQueue.main.async { [unowned self] in
+                    
+                    self.productImageView.image = .defaultPizza
+                    activityIndicator.stopAnimating()
+                    
+                }
+                
+            }
+            
+        })
+        
+        dataTask?.resume()
+        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dataTask?.cancel()
+        
+        productImageView.image = .loadPizza
+        activityIndicator.startAnimating()
     }
 }

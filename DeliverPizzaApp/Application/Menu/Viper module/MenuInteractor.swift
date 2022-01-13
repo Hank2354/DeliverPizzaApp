@@ -40,7 +40,6 @@ class MenuInteractor: MenuInteractorType {
                 
                 // Delete repeat elements in categories
                 var categoriesWithoutRepeatingElements = Array(Set(categories))
-                var currentCategories = Array(Set(categories))
                 
                 // Save main categories (must be getting always)
                 let pizzaProducts  = productModels.filter { $0.category == "Пицца"   }
@@ -56,11 +55,11 @@ class MenuInteractor: MenuInteractorType {
                 // Save products with other categories
                 var otherProducts = [[ProductModel]]()
                 
-                for productModel in productModels {
+                for category in categoriesWithoutRepeatingElements {
                     
                     var otherCategoryArray = [ProductModel]()
                     
-                    for category in categoriesWithoutRepeatingElements {
+                    for productModel in productModels {
                         
                         if productModel.category == category {
                             
@@ -71,9 +70,7 @@ class MenuInteractor: MenuInteractorType {
                     }
                     
                     if !otherCategoryArray.isEmpty {
-                        
                         otherProducts.append(otherCategoryArray)
-                        
                     }
                     
                 }
@@ -81,10 +78,22 @@ class MenuInteractor: MenuInteractorType {
                 // Create result array where pizza, combo, desert, drinks always first
                 var resultProductArray: [ProductModel] = pizzaProducts + comboProducts + desertProducts + drinksProducts
                 
+                // create current catogories
+                var currentCategories = [pizzaProducts .first! .category,
+                                         comboProducts .first! .category,
+                                         desertProducts.first! .category,
+                                         drinksProducts.first! .category]
+                
                 // add other products in result array
-                for otherProduct in otherProducts {
-                    resultProductArray += otherProduct
+                for productsArray in otherProducts {
+                    resultProductArray += productsArray
+                    currentCategories.append(productsArray.first!.category)
+                    
+                    
                 }
+                
+                
+                
                 
                 
                 self.presenter?.menuDataIsFetched(tableItems: resultProductArray, categoryItems: currentCategories, error: nil)

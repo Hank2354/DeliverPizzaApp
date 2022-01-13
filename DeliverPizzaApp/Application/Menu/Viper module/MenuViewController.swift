@@ -45,10 +45,48 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         return tableView
     }()
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        indicator.startAnimating()
+        
+        return indicator
+    }()
+    
+    // MARK: - Configuration methods
+    func setupConstraints() {
+        
+        var constraints = [NSLayoutConstraint]()
+        
+        constraints.append(headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+        constraints.append(headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        currentHeaderConstraint = headerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.3)
+        currentHeaderConstraint?.isActive = true
+        
+        constraints.append(footerTableView.topAnchor.constraint(equalTo: headerView.bottomAnchor))
+        constraints.append(footerTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(footerTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        constraints.append(footerTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+        
+        constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor))
+        constraints.append(activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor))
+        constraints.append(activityIndicator.widthAnchor.constraint(equalToConstant: 50))
+        constraints.append(activityIndicator.heightAnchor.constraint(equalTo: activityIndicator.widthAnchor))
+        
+        NSLayoutConstraint.activate(constraints)
+    }
+    
     // MARK: - ViewController life cycle
     
     override func loadView()     {
         super.loadView()
+        
+        view.addSubview(headerView)
+        view.addSubview(footerTableView)
+        view.addSubview(activityIndicator)
         
         view.backgroundColor = .backgroundApplicationColor
         
@@ -58,5 +96,8 @@ class MenuViewController: UIViewController, MenuViewControllerType {
     override func viewDidLoad()  {
         super.viewDidLoad()
 
+        setupConstraints()
+        
+        presenter?.viewDidLoaded()
     }
 }

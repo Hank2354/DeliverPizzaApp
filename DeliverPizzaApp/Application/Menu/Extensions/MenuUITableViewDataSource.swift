@@ -11,18 +11,25 @@ import UIKit
 extension MenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        
+        guard let tableView = tableView as? FooterTableView else { return 0 }
+        
+        return tableView.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let tableView = tableView as? FooterTableView else { return UITableViewCell() }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as? ProductCell
         
         guard let cell = cell else { return UITableViewCell() }
         
-        cell.productImageView.image = .discountFreePizza
-        cell.productTitle.text = "Баварские колбаски"
-        cell.productDescription.text = "Баварские колбаски, ветчина, пикантная пепперони, острая чоризо, моцарелла, томатный соус "
+        cell.productTitle.text = tableView.items[indexPath.row].positionName
+        cell.productDescription.text = tableView.items[indexPath.row].positionDescription
+        cell.category = tableView.items[indexPath.row].category
+        cell.priceButton.setTitle("от \(tableView.items[indexPath.row].minPrice) р", for: .normal)
+        cell.imageURLString = tableView.items[indexPath.row].imageURL
         
         cell.config()
         
