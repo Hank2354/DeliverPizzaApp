@@ -11,6 +11,8 @@ extension MenuViewController: CategoryCollectionViewDelegate {
     
     func didSelectCategory(_ categoryName: String) {
         
+        presenter?.categoryDidSelected(category: categoryName)
+        
     }
     
 }

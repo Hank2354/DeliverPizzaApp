@@ -18,6 +18,8 @@ extension HeaderView: UICollectionViewDelegate {
             
         }
         
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        
     }
     
 }

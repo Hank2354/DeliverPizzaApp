@@ -51,6 +51,17 @@ class MenuPresenter: MenuPresenterType {
         
     }
     
+    func categoryDidSelected(category: String) {
+        
+        let currentPositionIndex = view?.footerTableView.items.firstIndex(where: {$0.category == category}) ?? 0
+        
+        view?.footerTableView.scrollToRow(at: IndexPath(row: currentPositionIndex, section: 0),
+                                          at: .top,
+                                          animated: true)
+        
+        
+    }
+    
     func viewDidLoaded() {
         
         self.interactor?.fetchDataFromServer()
