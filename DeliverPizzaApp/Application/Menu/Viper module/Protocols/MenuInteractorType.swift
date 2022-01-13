@@ -10,4 +10,9 @@ import Foundation
 protocol MenuInteractorType: AnyObject {
     
     var presenter: MenuPresenterType? { get set }
+    
+    func fetchDataFromServer()
+    
+    func fetchDiscountsFromServer()
+    
 }

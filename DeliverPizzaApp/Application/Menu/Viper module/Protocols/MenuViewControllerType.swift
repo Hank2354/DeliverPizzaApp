@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MenuViewControllerType: AnyObject {
     
     var presenter: MenuPresenterType? { get set }
+    
+    var headerView: HeaderView { get set }
+    
+    var footerTableView: FooterTableView { get set }
+    
+    var activityIndicator: UIActivityIndicatorView { get set }
 }

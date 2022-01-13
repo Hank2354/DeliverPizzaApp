@@ -19,4 +19,7 @@ extension UIImage {
     static let discountSale30    =   UIImage(named: "discountSale30")
     static let discountFreePizza =   UIImage(named: "discountFreePizza")
     
+    static let defaultPizza      =   UIImage(named: "defaultPizza")
+    static let loadPizza         =   UIImage(named: "loadPizza")
+    
 }
