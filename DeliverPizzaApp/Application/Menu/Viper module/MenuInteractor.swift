@@ -9,12 +9,12 @@ import Foundation
 
 class MenuInteractor: MenuInteractorType {
     
-    weak var presenter: MenuPresenterType?
+    weak var presenter:  MenuPresenterType?
     
     var networkManager = NetworkManager.shared
     
     
-    func fetchDataFromServer() {
+    func fetchDataFromServer()      {
         
         networkManager.fetchMenuData { [unowned self] result in
             
@@ -28,9 +28,9 @@ class MenuInteractor: MenuInteractorType {
                 
                 for dataModel in menuDataModel {
                     
-                    categories.append(dataModel.category)
+                    categories    .append(dataModel.category)
                     
-                    productModels.append(ProductModel(imageURL: dataModel.imageURL,
+                    productModels .append(ProductModel(imageURL: dataModel.imageURL,
                                                      positionName: dataModel.name,
                                                      positionDescription: dataModel.desc,
                                                      minPrice: Decimal(integerLiteral: dataModel.minPrice),
@@ -91,10 +91,6 @@ class MenuInteractor: MenuInteractorType {
                     
                     
                 }
-                
-                
-                
-                
                 
                 self.presenter?.menuDataIsFetched(tableItems: resultProductArray, categoryItems: currentCategories, error: nil)
                 

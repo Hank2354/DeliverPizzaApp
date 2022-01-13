@@ -9,11 +9,11 @@ import Foundation
 
 class MenuPresenter: MenuPresenterType {
     
-    weak var view: MenuViewControllerType?
+    weak var view:       MenuViewControllerType?
     
-    var interactor: MenuInteractorType?
+    var      interactor: MenuInteractorType?
     
-    var router: MenuRouterType?
+    var      router:     MenuRouterType?
     
     func discountDataIsFetched(discounts: DiscountItemModels) {
         
@@ -23,7 +23,9 @@ class MenuPresenter: MenuPresenterType {
         
     }
     
-    func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?) {
+    func menuDataIsFetched(tableItems: [ProductModel]?,
+                           categoryItems: [String]?,
+                           error: NetworkError?)              {
         
         
         guard let tableItems = tableItems,
@@ -46,23 +48,20 @@ class MenuPresenter: MenuPresenterType {
             interactor?.fetchDiscountsFromServer()
         }
         
-        
-        
-        
     }
     
-    func categoryDidSelected(category: String) {
+    func categoryDidSelected(category: String)                {
         
         let currentPositionIndex = view?.footerTableView.items.firstIndex(where: {$0.category == category}) ?? 0
         
-        view?.footerTableView.scrollToRow(at: IndexPath(row: currentPositionIndex, section: 0),
-                                          at: .top,
+        view?.footerTableView.scrollToRow(at:       IndexPath(row: currentPositionIndex, section: 0),
+                                          at:       .top,
                                           animated: true)
         
         
     }
     
-    func viewDidLoaded() {
+    func viewDidLoaded()                                      {
         
         self.interactor?.fetchDataFromServer()
        

@@ -12,14 +12,14 @@ class MainTabBar: UITabBarController {
     
     fileprivate func initMenuModule(tabBarString: String) -> UIViewController {
         
-        let menuRouter = MenuAssembly.start()
-        let viewController = menuRouter.entryPoint
+        let menuRouter      = MenuAssembly.start()
+        let viewController  = menuRouter.entryPoint
         
         guard let viewController = viewController else { return UIViewController() }
         
-        let navigationVC = UINavigationController(rootViewController: viewController)
+        let navigationVC     = UINavigationController(rootViewController: viewController)
         
-        let customTabBarItem: UITabBarItem = UITabBarItem(title: tabBarString,
+        let customTabBarItem:  UITabBarItem = UITabBarItem(title: tabBarString,
                                                           image: .tabLogoMenu,
                                                           selectedImage: .tabLogoMenu?
                                                             .withRenderingMode(.alwaysOriginal)
@@ -37,7 +37,7 @@ class MainTabBar: UITabBarController {
     fileprivate func initEmptyModule(tabBarString: String) -> UIViewController {
         
         // Create empty VC
-        let emptyVC = EmptyViewController()
+        let emptyVC              = EmptyViewController()
         emptyVC.tabBarItem.title = tabBarString
         
         // Set custom tabBarItem
@@ -49,7 +49,7 @@ class MainTabBar: UITabBarController {
             
         case "Контакты":
             
-            customTabBarItem.image = .tabLogoContacts
+            customTabBarItem.image         = .tabLogoContacts
             
             customTabBarItem.selectedImage = .tabLogoContacts?
                 .withRenderingMode(.alwaysOriginal)
@@ -57,7 +57,7 @@ class MainTabBar: UITabBarController {
             
         case "Профиль" :
             
-            customTabBarItem.image = .tabLogoProfile
+            customTabBarItem.image         = .tabLogoProfile
             
             customTabBarItem.selectedImage = .tabLogoProfile?
                 .withRenderingMode(.alwaysOriginal)
@@ -65,7 +65,7 @@ class MainTabBar: UITabBarController {
             
         case "Корзина" :
             
-            customTabBarItem.image = .tabLogoBasket
+            customTabBarItem.image         = .tabLogoBasket
             
             customTabBarItem.selectedImage = .tabLogoBasket?
                 .withRenderingMode(.alwaysOriginal)

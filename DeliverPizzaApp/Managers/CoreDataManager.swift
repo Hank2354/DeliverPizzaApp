@@ -19,7 +19,7 @@ class CoreDataManager {
     }
     
     // MARK: - Core Data stack
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy var persistentContainer:  NSPersistentContainer  = {
 
         let container = NSPersistentContainer(name: "MoneySafe")
         

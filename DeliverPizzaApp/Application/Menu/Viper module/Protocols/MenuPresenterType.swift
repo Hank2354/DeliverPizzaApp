@@ -9,11 +9,11 @@ import Foundation
 
 protocol MenuPresenterType: AnyObject {
     
-    var view: MenuViewControllerType? { get set }
+    var view:       MenuViewControllerType? { get set }
     
-    var interactor: MenuInteractorType? { get set }
+    var interactor: MenuInteractorType?     { get set }
     
-    var router: MenuRouterType? { get set }
+    var router:     MenuRouterType?         { get set }
     
     func discountDataIsFetched(discounts: DiscountItemModels)
     

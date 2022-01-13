@@ -36,15 +36,15 @@ class CategoryCell: UICollectionViewCell {
     func config()                  {
         
         self.layer.cornerRadius = 16
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4).cgColor
+        self.layer.borderWidth  = 1
+        self.layer.borderColor  = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4).cgColor
         
         addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
             
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            titleLabel .centerXAnchor.constraint (equalTo: self.centerXAnchor),
+            titleLabel .centerYAnchor.constraint (equalTo: self.centerYAnchor),
             
         ])
     }
@@ -55,16 +55,16 @@ class CategoryCell: UICollectionViewCell {
             
             if isSelected {
                 
-                self.backgroundColor = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4)
-                titleLabel.font = UIFont.boldSystemFont(ofSize: 13)
-                titleLabel.textColor = UIColor.tabBarItemSelectedColor
+                self.backgroundColor   = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4)
+                titleLabel.font        = UIFont.boldSystemFont(ofSize: 13)
+                titleLabel.textColor   = UIColor.tabBarItemSelectedColor
                 self.layer.borderWidth = 0
                 
             } else {
                 
-                self.backgroundColor = UIColor.clear
-                titleLabel.font = UIFont.systemFont(ofSize: 13)
-                titleLabel.textColor = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4)
+                self.backgroundColor   = UIColor.clear
+                titleLabel.font        = UIFont.systemFont(ofSize: 13)
+                titleLabel.textColor   = UIColor.tabBarItemSelectedColor.withAlphaComponent(0.4)
                 self.layer.borderWidth = 1
                 
             }

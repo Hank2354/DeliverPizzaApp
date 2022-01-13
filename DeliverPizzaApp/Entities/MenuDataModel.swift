@@ -9,12 +9,14 @@ import Foundation
 
 // MARK: - MenuDataModelElement
 struct MenuDataModelElement: Codable {
+    
     let category: String
-    let desc: String
-    let id: Int
+    let desc:     String
     let imageURL: String
+    let name:     String
     let minPrice: Int
-    let name: String
+    let id:       Int
+    
 }
 
 typealias MenuDataModel = [MenuDataModelElement]
