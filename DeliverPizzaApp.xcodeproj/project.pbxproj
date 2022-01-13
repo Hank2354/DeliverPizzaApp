@@ -28,6 +28,15 @@
 		41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518BC278F52CD00C50522 /* MenuAssemblyType.swift */; };
 		41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C0278F58C600C50522 /* Extension UIImage.swift */; };
 		41B518C3278F5BD000C50522 /* Extension UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C2278F5BD000C50522 /* Extension UIColor.swift */; };
+		41B518C6278F70C300C50522 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C5278F70C300C50522 /* HeaderView.swift */; };
+		41B518C9278F72FF00C50522 /* DiscountItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518C8278F72FF00C50522 /* DiscountItemModel.swift */; };
+		41B518CB278F7B2800C50522 /* DiscountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518CA278F7B2800C50522 /* DiscountCell.swift */; };
+		41B518CD278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518CC278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift */; };
+		41B518CF278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518CE278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift */; };
+		41B518D1278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */; };
+		41B518D3278F86A400C50522 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D2278F86A400C50522 /* CategoryCell.swift */; };
+		41B518D5278F89FA00C50522 /* CategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */; };
+		41B518D7278F964E00C50522 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,15 @@
 		41B518BC278F52CD00C50522 /* MenuAssemblyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssemblyType.swift; sourceTree = "<group>"; };
 		41B518C0278F58C600C50522 /* Extension UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIImage.swift"; sourceTree = "<group>"; };
 		41B518C2278F5BD000C50522 /* Extension UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension UIColor.swift"; sourceTree = "<group>"; };
+		41B518C5278F70C300C50522 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		41B518C8278F72FF00C50522 /* DiscountItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountItemModel.swift; sourceTree = "<group>"; };
+		41B518CA278F7B2800C50522 /* DiscountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCell.swift; sourceTree = "<group>"; };
+		41B518CC278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUICollectionViewDelegate.swift; sourceTree = "<group>"; };
+		41B518CE278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUICollectionViewDataSource.swift; sourceTree = "<group>"; };
+		41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderUICollectionViewDelegateFlowLayout.swift; sourceTree = "<group>"; };
+		41B518D2278F86A400C50522 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,7 @@
 				41B5189F278F50A600C50522 /* Application */,
 				41B5189A278F4FA500C50522 /* Managers */,
 				41B518BF278F588600C50522 /* General extensions */,
+				41B518C4278F70A900C50522 /* Custom UI Elements */,
 				41B51899278F4F2000C50522 /* Supporting files */,
 			);
 			path = DeliverPizzaApp;
@@ -192,6 +211,30 @@
 			path = "General extensions";
 			sourceTree = "<group>";
 		};
+		41B518C4278F70A900C50522 /* Custom UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				41B518C7278F728B00C50522 /* Header */,
+			);
+			path = "Custom UI Elements";
+			sourceTree = "<group>";
+		};
+		41B518C7278F728B00C50522 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				41B518C5278F70C300C50522 /* HeaderView.swift */,
+				41B518C8278F72FF00C50522 /* DiscountItemModel.swift */,
+				41B518CA278F7B2800C50522 /* DiscountCell.swift */,
+				41B518D2278F86A400C50522 /* CategoryCell.swift */,
+				41B518CC278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift */,
+				41B518CE278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift */,
+				41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */,
+				41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */,
+				41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -267,20 +310,29 @@
 				41B5189E278F4FF800C50522 /* NetworkManager.swift in Sources */,
 				41B5189C278F4FBD00C50522 /* CoreDataManager.swift in Sources */,
 				41B518B7278F52B400C50522 /* MenuInteractorType.swift in Sources */,
+				41B518D3278F86A400C50522 /* CategoryCell.swift in Sources */,
 				41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */,
 				41B518B1278F528B00C50522 /* MenuRouter.swift in Sources */,
+				41B518C6278F70C300C50522 /* HeaderView.swift in Sources */,
 				41B518AB278F527000C50522 /* MenuViewController.swift in Sources */,
+				41B518D1278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift in Sources */,
 				41B518B5278F52A600C50522 /* MenuViewControllerType.swift in Sources */,
+				41B518D7278F964E00C50522 /* PagingCollectionViewLayout.swift in Sources */,
 				41B518C3278F5BD000C50522 /* Extension UIColor.swift in Sources */,
+				41B518CF278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift in Sources */,
+				41B518CB278F7B2800C50522 /* DiscountCell.swift in Sources */,
 				41B51881278F4D8F00C50522 /* AppDelegate.swift in Sources */,
 				41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */,
 				41B518A2278F515B00C50522 /* MainTabBar.swift in Sources */,
+				41B518CD278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift in Sources */,
 				41B5188B278F4D8F00C50522 /* DeliverPizzaApp.xcdatamodeld in Sources */,
 				41B518B3278F529300C50522 /* MenuAssembly.swift in Sources */,
+				41B518C9278F72FF00C50522 /* DiscountItemModel.swift in Sources */,
 				41B518B9278F52BC00C50522 /* MenuPresenterType.swift in Sources */,
 				41B518BB278F52C600C50522 /* MenuRouterType.swift in Sources */,
 				41B518AD278F527B00C50522 /* MenuInteractor.swift in Sources */,
 				41B518AF278F528100C50522 /* MenuPresenter.swift in Sources */,
+				41B518D5278F89FA00C50522 /* CategoryCollectionViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
