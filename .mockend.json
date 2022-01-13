@@ -20,5 +20,5 @@
     "desc": { "string": {} },
     "imageURL": { "string": {} },
     "minPrice": { "string": {} }
-  },
+  }
 }
