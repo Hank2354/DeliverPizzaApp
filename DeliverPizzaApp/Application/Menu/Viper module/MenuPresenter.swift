@@ -15,5 +15,13 @@ class MenuPresenter: MenuPresenterType {
     
     var router: MenuRouterType?
     
+    func discountDataIsFetched(discounts: DiscountItemModels) {
+        
+    }
+    
+    func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?) {
+        
+    }
+    
     
 }

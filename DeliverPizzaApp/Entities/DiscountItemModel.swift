@@ -11,3 +11,5 @@ import UIKit
 struct DiscountItemModel {
     let image: UIImage?
 }
+
+typealias DiscountItemModels = [DiscountItemModel]

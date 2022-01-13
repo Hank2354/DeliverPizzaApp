@@ -14,4 +14,8 @@ protocol MenuPresenterType: AnyObject {
     var interactor: MenuInteractorType? { get set }
     
     var router: MenuRouterType? { get set }
+    
+    func discountDataIsFetched(discounts: DiscountItemModels)
+    
+    func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?)
 }
