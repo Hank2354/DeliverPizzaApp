@@ -57,6 +57,8 @@ class ProductCell: UITableViewCell {
         
         imageView.image = .loadPizza
         
+        imageView.contentMode = .scaleAspectFill
+        
         return imageView
     }()
     
@@ -126,10 +128,10 @@ class ProductCell: UITableViewCell {
         var constraints = [NSLayoutConstraint]()
         
         constraints.append(productImageView.heightAnchor.constraint(equalTo: productImageView.widthAnchor))
-        constraints.append(productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10))
-        constraints.append(productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10))
-        constraints.append(productImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10))
-        constraints.append(productImageView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10))
+        constraints.append(productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15))
+        constraints.append(productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15))
+        constraints.append(productImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15))
+        constraints.append(productImageView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -15))
         
         constraints.append(productTitle.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5))
         constraints.append(productTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5))
