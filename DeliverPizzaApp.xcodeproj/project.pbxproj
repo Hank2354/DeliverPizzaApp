@@ -37,6 +37,7 @@
 		41B518D3278F86A400C50522 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D2278F86A400C50522 /* CategoryCell.swift */; };
 		41B518D5278F89FA00C50522 /* CategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */; };
 		41B518D7278F964E00C50522 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */; };
+		41B518D9278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		41B518D2278F86A400C50522 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		41B518D4278F89FA00C50522 /* CategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		41B518D6278F964E00C50522 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		41B518BE278F537000C50522 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				41B518D8278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				41B5189E278F4FF800C50522 /* NetworkManager.swift in Sources */,
 				41B5189C278F4FBD00C50522 /* CoreDataManager.swift in Sources */,
 				41B518B7278F52B400C50522 /* MenuInteractorType.swift in Sources */,
+				41B518D9278FB40300C50522 /* MenuCategoryCollectionViewDelegate.swift in Sources */,
 				41B518D3278F86A400C50522 /* CategoryCell.swift in Sources */,
 				41B518C1278F58C600C50522 /* Extension UIImage.swift in Sources */,
 				41B518B1278F528B00C50522 /* MenuRouter.swift in Sources */,

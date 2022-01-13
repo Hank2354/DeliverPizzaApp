@@ -9,7 +9,7 @@ import Foundation
 
 class MenuInteractor: MenuInteractorType {
     
-    var presenter: MenuPresenterType?
+    weak var presenter: MenuPresenterType?
     
     // mock data
     var discounts = [

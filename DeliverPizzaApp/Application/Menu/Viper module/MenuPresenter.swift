@@ -9,7 +9,7 @@ import Foundation
 
 class MenuPresenter: MenuPresenterType {
     
-    var view: MenuViewControllerType?
+    weak var view: MenuViewControllerType?
     
     var interactor: MenuInteractorType?
     

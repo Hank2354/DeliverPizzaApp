@@ -63,7 +63,7 @@ class PagingCollectionViewLayout: UICollectionViewFlowLayout {
         // If speed != 0, We'll switch the page anyway
         
         // get number of nextPage
-        var nextPage: CGFloat = nextOrCurrentPage + (speed > 0 ? 1 : -1)
+        let nextPage: CGFloat = nextOrCurrentPage + (speed > 0 ? 1 : -1)
         
         // return the offset required for correct display selected page
         if scrollDirection == .horizontal {

@@ -10,6 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController, MenuViewControllerType {
     
+    // MARK: - Properties
     var presenter: MenuPresenterType?
     
     

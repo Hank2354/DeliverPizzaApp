@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MenuViewControllerType {
+protocol MenuViewControllerType: AnyObject {
     
     var presenter: MenuPresenterType? { get set }
 }
