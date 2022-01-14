@@ -21,13 +21,13 @@ extension CoreDataManager {
         persistentContainer.performBackgroundTask { managetObjectBackgroundContext in
             
             let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
-            let result = try? managetObjectBackgroundContext.fetch(fetchRequest)
+            let result = try? self.managetObjectBackgroundContext.fetch(fetchRequest)
             
-//            print("ELEMENTS: \(result!.count)")
+            print("ELEMENTS: \(result!.count)")
             if let result = result, !result.isEmpty {
                 
                 for element in result {
-                    managetObjectBackgroundContext.delete(element as NSManagedObject)
+                    self.managetObjectBackgroundContext.delete(element as NSManagedObject)
                 }
                 
             }
