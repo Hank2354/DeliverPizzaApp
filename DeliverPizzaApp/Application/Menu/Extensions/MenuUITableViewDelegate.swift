@@ -70,21 +70,15 @@ extension MenuViewController: UITableViewDelegate {
         
         guard let scrollView = scrollView as? FooterTableView else { return }
         
-        
-        
         guard !decelerate else { return }
         
         scrollView.shouldCalculateScrollDirection = false
-        
-        
         
     }
     
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         
         guard let scrollView = scrollView as? FooterTableView else { return }
-        
-        
         
         scrollView.shouldCalculateScrollDirection = false
         

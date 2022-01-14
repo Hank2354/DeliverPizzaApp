@@ -16,14 +16,13 @@ enum ContextType {
 
 extension CoreDataManager {
     
-    func saveNewDataFromServer(models: [ProductModel]) {
+    func saveNewDataFromServer(models: [ProductModel])  {
         
         persistentContainer.performBackgroundTask { managetObjectBackgroundContext in
             
             let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
             let result = try? self.managetObjectBackgroundContext.fetch(fetchRequest)
             
-            print("ELEMENTS: \(result!.count)")
             if let result = result, !result.isEmpty {
                 
                 for element in result {

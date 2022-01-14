@@ -25,5 +25,5 @@ protocol MenuPresenterType: AnyObject {
     
     func didScrollToNewCategory (category: String)
     
-    func viewDidLoaded()
+    func viewDidLoaded          ()
 }
