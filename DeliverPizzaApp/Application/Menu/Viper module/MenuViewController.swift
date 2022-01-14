@@ -117,6 +117,13 @@ class MenuViewController: UIViewController, MenuViewControllerType {
         
     }
     
+    // MARK: - Open methods
+    func presentAlertMessage(ac: UIAlertController) {
+        
+        present(ac, animated: true, completion: nil)
+        
+    }
+    
     // MARK: - ViewController life cycle
     
     override func loadView()     {

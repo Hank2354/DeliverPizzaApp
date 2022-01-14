@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MenuPresenter: MenuPresenterType {
     
@@ -33,10 +34,21 @@ class MenuPresenter: MenuPresenterType {
               error == nil
                 
         else {
-                  
-                  return
-                  
-              }
+            
+            DispatchQueue.main.async { [unowned self] in
+                
+                switch error! {
+                    
+                case .serverNotResponding:
+                    createAlertMessage(with: "Сервер не отвечает")
+                case .noInternetConnection:
+                    createAlertMessage(with: "Нет сети")
+                }
+                
+            }
+            
+            return
+        }
         
         DispatchQueue.main.async { [unowned self] in
             
@@ -74,6 +86,25 @@ class MenuPresenter: MenuPresenterType {
         
         self.interactor?.fetchDataFromServer()
        
+    }
+    
+    fileprivate func createAlertMessage(with message: String) {
+        
+        let alertController = UIAlertController(title: "Ошибка сети", message: message, preferredStyle: .alert)
+        
+        let againButton = UIAlertAction(title: "Еще раз", style: .default) { [unowned self] _ in
+            
+            self.interactor?.fetchDataFromServer()
+            
+        }
+        
+        let lastDataAction = UIAlertAction(title: "Покажите, что осталось", style: .default, handler: nil)
+        
+        alertController.addAction(againButton)
+        alertController.addAction(lastDataAction)
+        
+        view?.presentAlertMessage(ac: alertController)
+        
     }
     
 }

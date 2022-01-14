@@ -96,7 +96,7 @@ class MenuInteractor: MenuInteractorType {
                 
             case .failure(let error):
                 
-                print("error: \(error)")
+                presenter?.menuDataIsFetched(tableItems: nil, categoryItems: nil, error: error)
                 
             }
             

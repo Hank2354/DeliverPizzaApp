@@ -17,4 +17,6 @@ protocol MenuViewControllerType: AnyObject {
     var footerTableView:   FooterTableView         { get set }
     
     var activityIndicator: UIActivityIndicatorView { get set }
+    
+    func presentAlertMessage(ac: UIAlertController)
 }
