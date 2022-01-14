@@ -14,14 +14,25 @@ class CoreDataManager {
     
     private init() {}
     
-    func entityForName(entityName: String) -> NSEntityDescription {
-        return NSEntityDescription.entity(forEntityName: entityName, in: self.managedObjectContext)!
+    func entityForName(entityName: String, contextType: ContextType) -> NSEntityDescription {
+        
+        switch contextType {
+        case .main:
+            
+            return NSEntityDescription.entity(forEntityName: entityName, in: self.managedObjectContext)!
+            
+        case .background:
+            
+            return NSEntityDescription.entity(forEntityName: entityName, in: self.managetObjectBackgroundContext)!
+            
+        }
+        
     }
     
     // MARK: - Core Data stack
     lazy var persistentContainer:  NSPersistentContainer  = {
 
-        let container = NSPersistentContainer(name: "MoneySafe")
+        let container = NSPersistentContainer(name: "DeliverPizzaApp")
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {

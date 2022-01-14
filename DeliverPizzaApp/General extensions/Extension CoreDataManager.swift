@@ -18,35 +18,54 @@ extension CoreDataManager {
     
     func saveNewDataFromServer(models: [ProductModel]) {
         
-        for model in models {
-
-            let managetObjectProductModel = Product(contextType: .background)
-
-            managetObjectProductModel .name     = model.positionName
-            managetObjectProductModel .desc     = model.positionDescription
-            managetObjectProductModel .category = model.category
-            managetObjectProductModel .minPrice = model.minPrice as NSDecimalNumber
-
-            let imageLink = URL(string: model.imageURL ?? "https://i.yapx.ru/QGcBE.png")
-
-            guard let imageLink = imageLink,
-                  let imageData = try? Data(contentsOf: imageLink) else {
-                      
-                      managetObjectProductModel .image = nil
-                      
-                      saveBackgroundContext()
-                      
-                      continue
-                      
-            }
-
-            managetObjectProductModel .image = imageData
+        persistentContainer.performBackgroundTask { managetObjectBackgroundContext in
             
-            saveBackgroundContext()
+            let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+            let result = try? managetObjectBackgroundContext.fetch(fetchRequest)
+            
+            print("111")
+            if let result = result, !result.isEmpty {
+                
+                for element in result {
+                    managetObjectBackgroundContext.delete(element)
+                }
+                
+            }
+            
+            for model in models {
 
+                let managetObjectProductModel = Product(contextType: .background)
+
+                managetObjectProductModel .name     = model.positionName
+                managetObjectProductModel .desc     = model.positionDescription
+                managetObjectProductModel .category = model.category
+                managetObjectProductModel .minPrice = model.minPrice as NSDecimalNumber
+
+                let imageLink = URL(string: model.imageURL ?? "https://i.yapx.ru/QGcBE.png")
+
+                guard let imageLink = imageLink,
+                      let imageData = try? Data(contentsOf: imageLink) else {
+                          
+                          managetObjectProductModel .image = nil
+                          
+                          self.saveBackgroundContext()
+                          
+                          continue
+                          
+                }
+
+                managetObjectProductModel .image = imageData
+
+            }
+            
+            self.saveBackgroundContext()
+            
+            print("COMPLETE")
+            
         }
         
+        
+        
     }
-    
     
 }
