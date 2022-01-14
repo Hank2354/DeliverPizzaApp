@@ -3,7 +3,7 @@
     <entity name="Product" representedClassName="Product" syncable="YES">
         <attribute name="category" attributeType="String" defaultValueString="&quot;&quot;"/>
         <attribute name="desc" attributeType="String" defaultValueString="&quot;&quot;"/>
-        <attribute name="image" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="minPrice" attributeType="Decimal" defaultValueString="345"/>
         <attribute name="name" attributeType="String" defaultValueString="&quot;&quot;"/>
     </entity>

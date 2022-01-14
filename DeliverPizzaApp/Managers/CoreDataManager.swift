@@ -47,14 +47,37 @@ class CoreDataManager {
 
     // MARK: - Core Data Saving support
     func saveContext () {
+        
         if managedObjectContext.hasChanges {
+            
             do {
                 try managedObjectContext.save()
             } catch {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+            
         }
+        
+    }
+    
+    func saveBackgroundContext () {
+        
+        managetObjectBackgroundContext.performAndWait {
+            
+            if managetObjectBackgroundContext.hasChanges {
+                
+                do {
+                    try managetObjectBackgroundContext.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
+                
+            }
+            
+        }
+        
     }
     
 }

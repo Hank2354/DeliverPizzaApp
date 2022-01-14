@@ -20,7 +20,7 @@ extension Product {
     @NSManaged public var desc: String?
     @NSManaged public var minPrice: NSDecimalNumber?
     @NSManaged public var category: String?
-    @NSManaged public var image: Date?
+    @NSManaged public var image: Data?
 
 }
 

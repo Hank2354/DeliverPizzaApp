@@ -11,8 +11,8 @@ class MenuInteractor: MenuInteractorType {
     
     weak var presenter:  MenuPresenterType?
     
-    var networkManager = NetworkManager.shared
-    
+    var networkManager  = NetworkManager  .shared
+    var coreDataManager = CoreDataManager .shared
     
     func fetchDataFromServer()      {
         
@@ -91,6 +91,8 @@ class MenuInteractor: MenuInteractorType {
                     
                     
                 }
+                
+                coreDataManager.saveNewDataFromServer(models: resultProductArray)
                 
                 self.presenter?.menuDataIsFetched(tableItems: resultProductArray, categoryItems: currentCategories, error: nil)
                 
