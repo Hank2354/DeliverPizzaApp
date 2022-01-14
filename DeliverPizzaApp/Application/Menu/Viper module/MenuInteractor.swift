@@ -11,10 +11,10 @@ class MenuInteractor: MenuInteractorType {
     
     weak var presenter:  MenuPresenterType?
     
-    var networkManager = NetworkManager.shared
+    var networkManager  = NetworkManager  .shared
+    var coreDataManager = CoreDataManager .shared
     
-    
-    func fetchDataFromServer()      {
+    func fetchDataFromServer()        {
         
         networkManager.fetchMenuData { [unowned self] result in
             
@@ -31,10 +31,11 @@ class MenuInteractor: MenuInteractorType {
                     categories    .append(dataModel.category)
                     
                     productModels .append(ProductModel(imageURL: dataModel.imageURL,
-                                                     positionName: dataModel.name,
-                                                     positionDescription: dataModel.desc,
-                                                     minPrice: Decimal(integerLiteral: dataModel.minPrice),
-                                                     category: dataModel.category))
+                                                       imageData: nil,
+                                                       positionName: dataModel.name,
+                                                       positionDescription: dataModel.desc,
+                                                       minPrice: Decimal(integerLiteral: dataModel.minPrice),
+                                                       category: dataModel.category))
                     
                 }
                 
@@ -92,6 +93,8 @@ class MenuInteractor: MenuInteractorType {
                     
                 }
                 
+                coreDataManager.saveNewDataFromServer(models: resultProductArray)
+                
                 self.presenter?.menuDataIsFetched(tableItems: resultProductArray, categoryItems: currentCategories, error: nil)
                 
             case .failure(let error):
@@ -104,7 +107,85 @@ class MenuInteractor: MenuInteractorType {
         
     }
     
-    func fetchDiscountsFromServer() {
+    func fetchDataFromLocalDatabase() {
+        
+        let productModels = coreDataManager.loadDataFromLocalDatabase()
+        var categories = [String]()
+        
+        guard let productModels = productModels else {
+            
+            presenter?.menuDataIsFetched(tableItems: nil, categoryItems: nil, error: .noData)
+            
+            return
+            
+        }
+        
+        for productModel in productModels {
+            
+            categories.append(productModel.category)
+            
+        }
+        
+        // Delete repeat elements in categories
+        var categoriesWithoutRepeatingElements = Array(Set(categories))
+        
+        // Save main categories (must be getting always)
+        let pizzaProducts  = productModels.filter { $0.category == "Пицца"   }
+        let comboProducts  = productModels.filter { $0.category == "Комбо"   }
+        let desertProducts = productModels.filter { $0.category == "Десерты" }
+        let drinksProducts = productModels.filter { $0.category == "Напитки" }
+        
+        // Delete main categories from categories array
+        categoriesWithoutRepeatingElements.removeAll { name in
+            name == "Пицца" || name == "Комбо" || name == "Десерты" || name == "Напитки"
+        }
+        
+        // Save products with other categories
+        var otherProducts = [[ProductModel]]()
+        
+        for category in categoriesWithoutRepeatingElements {
+            
+            var otherCategoryArray = [ProductModel]()
+            
+            for productModel in productModels {
+                
+                if productModel.category == category {
+                    
+                    otherCategoryArray.append(productModel)
+                    
+                }
+                
+            }
+            
+            if !otherCategoryArray.isEmpty {
+                otherProducts.append(otherCategoryArray)
+            }
+            
+        }
+        
+        // Create result array where pizza, combo, desert, drinks always first
+        var resultProductArray: [ProductModel] = pizzaProducts + comboProducts + desertProducts + drinksProducts
+        
+        // create current catogories
+        var currentCategories = [pizzaProducts .first! .category,
+                                 comboProducts .first! .category,
+                                 desertProducts.first! .category,
+                                 drinksProducts.first! .category]
+        
+        // add other products in result array
+        for productsArray in otherProducts {
+            resultProductArray += productsArray
+            currentCategories.append(productsArray.first!.category)
+            
+            
+        }
+        
+        presenter?.menuDataIsFetched(tableItems: resultProductArray, categoryItems: currentCategories, error: nil)
+        
+    }
+    
+    /// From server or localDatabase, hardcoded photo
+    func fetchDiscountsFromServer()   {
         
         networkManager.fetchDiscountData { [unowned self] discounts in
             

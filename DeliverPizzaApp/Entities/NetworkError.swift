@@ -11,5 +11,5 @@ enum NetworkError: Error {
     
     case serverNotResponding
     case noInternetConnection
-    
+    case noData
 }

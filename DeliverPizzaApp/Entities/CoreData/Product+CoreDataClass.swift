@@ -11,10 +11,26 @@ import CoreData
 
 @objc(Product)
 public class Product: NSManagedObject {
-    
-    convenience init() {
-            self.init(entity: CoreDataManager.shared.entityForName(entityName: "Product"),
+
+    convenience init(contextType: ContextType) {
+        
+        switch contextType {
+        case .main:
+            
+            self.init(entity: CoreDataManager.shared.entityForName(entityName: "Product",
+                                                                   contextType: .main),
+                      
                       insertInto: CoreDataManager.shared.managedObjectContext)
+            
+        case .background:
+            
+            self.init(entity: CoreDataManager.shared.entityForName(entityName: "Product",
+                                                                   contextType: .background),
+                      
+                      insertInto: CoreDataManager.shared.managetObjectBackgroundContext)
+            
         }
+            
+    }
     
 }

@@ -26,7 +26,7 @@ class MenuPresenter: MenuPresenterType {
     
     func menuDataIsFetched(tableItems: [ProductModel]?,
                            categoryItems: [String]?,
-                           error: NetworkError?)              {
+                           error: NetworkError?)               {
         
         
         guard let tableItems = tableItems,
@@ -40,9 +40,11 @@ class MenuPresenter: MenuPresenterType {
                 switch error! {
                     
                 case .serverNotResponding:
-                    createAlertMessage(with: "Сервер не отвечает")
+                    createAlertMessage(with: "Сервер не отвечает", canLoadLocalData: true)
                 case .noInternetConnection:
-                    createAlertMessage(with: "Нет сети")
+                    createAlertMessage(with: "Нет сети", canLoadLocalData: true)
+                case .noData:
+                    createAlertMessage(with: "Нет сохраненных данных", canLoadLocalData: false)
                 }
                 
             }
@@ -62,7 +64,7 @@ class MenuPresenter: MenuPresenterType {
         
     }
     
-    func categoryDidSelected(category: String)                {
+    func categoryDidSelected(category: String)                 {
         
         let currentPositionIndex = view?.footerTableView.items.firstIndex(where: {$0.category == category}) ?? 0
         
@@ -76,19 +78,19 @@ class MenuPresenter: MenuPresenterType {
         
     }
     
-    func didScrollToNewCategory(category: String) {
+    func didScrollToNewCategory(category: String)              {
         
         view?.headerView.selectNewCategory(categoryName: category)
         
     }
     
-    func viewDidLoaded()                                      {
+    func viewDidLoaded()                                       {
         
         self.interactor?.fetchDataFromServer()
        
     }
     
-    fileprivate func createAlertMessage(with message: String) {
+    fileprivate func createAlertMessage(with message: String, canLoadLocalData: Bool)  {
         
         let alertController = UIAlertController(title: "Ошибка сети", message: message, preferredStyle: .alert)
         
@@ -98,7 +100,11 @@ class MenuPresenter: MenuPresenterType {
             
         }
         
-        let lastDataAction = UIAlertAction(title: "Покажите, что осталось", style: .default, handler: nil)
+        let lastDataAction = UIAlertAction(title: "Покажите, что осталось", style: .default) { [unowned self] _ in
+            
+            self.interactor?.fetchDataFromLocalDatabase()
+            
+        }
         
         alertController.addAction(againButton)
         alertController.addAction(lastDataAction)

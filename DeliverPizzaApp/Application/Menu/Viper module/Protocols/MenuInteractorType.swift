@@ -15,4 +15,6 @@ protocol MenuInteractorType: AnyObject {
     
     func fetchDiscountsFromServer()
     
+    func fetchDataFromLocalDatabase()
+    
 }
