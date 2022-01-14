@@ -10,6 +10,7 @@ import Foundation
 struct ProductModel {
     
     let imageURL:            String?
+    let imageData:           Data?
     let positionName:        String
     let positionDescription: String?
     let minPrice:            Decimal

@@ -16,7 +16,7 @@ class ProductCell: UITableViewCell {
     
     var category:         String  = ""
     
-    var imageURLString:   String? = "" {
+    var imageURLString:   String? {
         
         // When will set new image url, will be fetched image and set into imageView
         didSet {
@@ -44,6 +44,24 @@ class ProductCell: UITableViewCell {
                 
             }
             
+            
+        }
+        
+    }
+    
+    var imageData:        Data?   {
+        
+        didSet {
+            
+            guard let imageData = imageData,
+                  let image = UIImage(data: imageData) else {
+                
+                      productImageView.image = .defaultPizza
+                      return
+                      
+            }
+            
+            productImageView.image = image
             
         }
         

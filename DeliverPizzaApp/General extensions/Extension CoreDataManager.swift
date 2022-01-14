@@ -23,11 +23,11 @@ extension CoreDataManager {
             let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
             let result = try? managetObjectBackgroundContext.fetch(fetchRequest)
             
-            print("111")
+//            print("ELEMENTS: \(result!.count)")
             if let result = result, !result.isEmpty {
                 
                 for element in result {
-                    managetObjectBackgroundContext.delete(element)
+                    managetObjectBackgroundContext.delete(element as NSManagedObject)
                 }
                 
             }
@@ -65,6 +65,52 @@ extension CoreDataManager {
         }
         
         
+        
+    }
+    
+    func loadDataFromLocalDatabase() -> [ProductModel]? {
+        
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        
+        var currentProductModels = [ProductModel]()
+        
+        do {
+            let results = try managedObjectContext.fetch(fetchRequest)
+            guard !results.isEmpty else { return nil }
+            
+            for result in results {
+                
+                guard let image    = result.image,
+                      let name     = result.name,
+                      let desc     = result.desc,
+                      let minPrice = result.minPrice,
+                      let category = result.category else {
+                          
+                          continue
+                          
+                      }
+                
+                currentProductModels.append(ProductModel(imageURL:             nil,
+                                                         imageData:            image,
+                                                         positionName:         name,
+                                                         positionDescription:  desc,
+                                                         minPrice:             minPrice as Decimal,
+                                                         category:             category))
+                
+            }
+            
+            if !currentProductModels.isEmpty {
+                return currentProductModels
+            } else {
+                return nil
+            }
+            
+        } catch let error as NSError {
+            
+            print(error.localizedDescription)
+            return nil
+            
+        }
         
     }
     

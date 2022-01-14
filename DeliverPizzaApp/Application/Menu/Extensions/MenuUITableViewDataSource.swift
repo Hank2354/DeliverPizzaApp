@@ -28,7 +28,12 @@ extension MenuViewController: UITableViewDataSource {
         cell.productTitle.text        = tableView.items[indexPath.row].positionName
         cell.productDescription.text  = tableView.items[indexPath.row].positionDescription
         cell.category                 = tableView.items[indexPath.row].category
-        cell.imageURLString           = tableView.items[indexPath.row].imageURL
+        
+        if let imageURL = tableView.items[indexPath.row].imageURL {
+            cell.imageURLString = imageURL
+        } else {
+            cell.imageData      = tableView.items[indexPath.row].imageData
+        }
         
         cell.priceButton.setTitle("от \(tableView.items[indexPath.row].minPrice) р", for: .normal)
         
