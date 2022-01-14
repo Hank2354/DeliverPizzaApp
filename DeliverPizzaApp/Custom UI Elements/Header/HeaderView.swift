@@ -111,6 +111,16 @@ class HeaderView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    func selectNewCategory(categoryName: String)                {
+        
+        guard let currentItemIndex = categories.firstIndex(of: categoryName) else { return }
+        
+        let currentIndexPath = IndexPath(item: currentItemIndex, section: 0)
+        
+        categoriesCollectionView.selectItem(at: currentIndexPath, animated: true, scrollPosition: .centeredHorizontally)
+        
+    }
+    
     // MARK: - INIT
     override init(frame: CGRect)                                {
         super .init(frame: frame)

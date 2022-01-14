@@ -99,11 +99,9 @@ class MenuViewController: UIViewController, MenuViewControllerType {
     
     func configureNavBar()       {
         
-
+        navigationItem        .leftBarButtonItem      = UIBarButtonItem(title: "Москва ∨", style: .plain, target: nil, action: nil)
         navigationController? .navigationBar          .setValue(true, forKey: "hidesShadow")
         navigationItem        .leftBarButtonItem?     .tintColor = .black
-        navigationItem        .leftBarButtonItem      = UIBarButtonItem(title: "Москва ∨", style: .plain, target: nil, action: nil)
-        
         
     }
     

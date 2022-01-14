@@ -15,9 +15,9 @@ class MenuPresenter: MenuPresenterType {
     
     var      router:     MenuRouterType?
     
-    func discountDataIsFetched(discounts: DiscountItemModels) {
+    func discountDataIsFetched (discounts: DiscountItemModels) {
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+        DispatchQueue.main.async { [unowned self] in
             view?.headerView.discounts = discounts
         }
         
@@ -54,10 +54,19 @@ class MenuPresenter: MenuPresenterType {
         
         let currentPositionIndex = view?.footerTableView.items.firstIndex(where: {$0.category == category}) ?? 0
         
+        view?.footerTableView.fastScroll = true
+        
         view?.footerTableView.scrollToRow(at:       IndexPath(row: currentPositionIndex, section: 0),
                                           at:       .top,
                                           animated: true)
         
+        
+        
+    }
+    
+    func didScrollToNewCategory(category: String) {
+        
+        view?.headerView.selectNewCategory(categoryName: category)
         
     }
     

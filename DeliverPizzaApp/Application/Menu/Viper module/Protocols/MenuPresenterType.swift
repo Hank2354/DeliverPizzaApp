@@ -15,11 +15,15 @@ protocol MenuPresenterType: AnyObject {
     
     var router:     MenuRouterType?         { get set }
     
-    func discountDataIsFetched(discounts: DiscountItemModels)
+    func discountDataIsFetched  (discounts: DiscountItemModels)
     
-    func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?)
+    func menuDataIsFetched      (tableItems: [ProductModel]?,
+                                 categoryItems: [String]?,
+                                 error: NetworkError?)
     
-    func categoryDidSelected(category: String)
+    func categoryDidSelected    (category: String)
+    
+    func didScrollToNewCategory (category: String)
     
     func viewDidLoaded()
 }

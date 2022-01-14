@@ -45,6 +45,7 @@
 		41E5650327901A4E009D2574 /* MenuUITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */; };
 		41E5650527904E5C009D2574 /* MenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650427904E5C009D2574 /* MenuDataModel.swift */; };
 		41E5650727904ED0009D2574 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650627904ED0009D2574 /* NetworkError.swift */; };
+		41E5650927910177009D2574 /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650827910177009D2574 /* ScrollDirection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUITableViewDataSource.swift; sourceTree = "<group>"; };
 		41E5650427904E5C009D2574 /* MenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataModel.swift; sourceTree = "<group>"; };
 		41E5650627904ED0009D2574 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		41E5650827910177009D2574 /* ScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDirection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				41B518DF278FBAEC00C50522 /* ProductModel.swift */,
 				41E5650427904E5C009D2574 /* MenuDataModel.swift */,
 				41E5650627904ED0009D2574 /* NetworkError.swift */,
+				41E5650827910177009D2574 /* ScrollDirection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				41B518CF278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift in Sources */,
 				41B518CB278F7B2800C50522 /* DiscountCell.swift in Sources */,
 				41B51881278F4D8F00C50522 /* AppDelegate.swift in Sources */,
+				41E5650927910177009D2574 /* ScrollDirection.swift in Sources */,
 				41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */,
 				41B518E0278FBAEC00C50522 /* ProductModel.swift in Sources */,
 				41B518A2278F515B00C50522 /* MainTabBar.swift in Sources */,
