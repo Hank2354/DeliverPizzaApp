@@ -29,10 +29,21 @@ class CoreDataManager {
             }
         })
         
+        // New data adding in save data (if conflict)
+        container.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+        container.viewContext.shouldDeleteInaccessibleFaults = true
+        
+        // automatically merge data
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        
         return container
     }()
     
-    lazy var managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext
+    /// main thread context
+    lazy var managedObjectContext:           NSManagedObjectContext = persistentContainer.viewContext
+    
+    /// background context
+    lazy var managetObjectBackgroundContext: NSManagedObjectContext = persistentContainer.newBackgroundContext()
 
     // MARK: - Core Data Saving support
     func saveContext () {
