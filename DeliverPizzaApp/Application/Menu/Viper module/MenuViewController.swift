@@ -99,8 +99,20 @@ class MenuViewController: UIViewController, MenuViewControllerType {
     
     func configureNavBar()       {
         
+        let appearance = UINavigationBarAppearance()
+        let standardAppearance = UINavigationBarAppearance()
+        
+        appearance.backgroundColor = .backgroundApplicationColor
+        appearance.shadowColor     = .placeholderText
+        
+        standardAppearance.backgroundColor = .backgroundApplicationColor
+        standardAppearance.shadowColor     = .clear
+        
+        navigationController?.navigationBar.standardAppearance = standardAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = standardAppearance
+        navigationController?.navigationBar.compactScrollEdgeAppearance = appearance
+        
         navigationItem        .leftBarButtonItem      = UIBarButtonItem(title: "Москва ∨", style: .plain, target: nil, action: nil)
-        navigationController? .navigationBar          .setValue(true, forKey: "hidesShadow")
         navigationItem        .leftBarButtonItem?     .tintColor = .black
         
     }

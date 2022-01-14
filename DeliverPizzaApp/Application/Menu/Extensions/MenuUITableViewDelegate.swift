@@ -12,6 +12,8 @@ extension MenuViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
+        let currentAppears = navigationController?.navigationBar.standardAppearance
+        
         // Get headerViewHeight and calsulate allowable y offset
         let headerViewHeight =  headerView.bounds.height
         let allowableOffset  =  headerViewHeight - CGFloat(70)
@@ -46,11 +48,14 @@ extension MenuViewController: UITableViewDelegate {
                 
                 scrollView.contentOffset.y     =  newTableViewOffset
                 mainScrollView.contentOffset.y =  newScrollViewOffset
-
+                
+                currentAppears?.shadowColor    = .placeholderText
+            } else {
+                currentAppears?.shadowColor    = .clear
             }
             
             // Show header menu if user want
-            if viewOffset < -10 || tableOffset < -1 {
+            if viewOffset < -10 || tableOffset < -2 {
                 
                 mainScrollView  .setContentOffset(CGPoint(x: 0, y: 0), animated: true)
                 footerTableView .isScrollEnabled = false
