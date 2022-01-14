@@ -8,9 +8,12 @@
 import Foundation
 
 struct ProductModel {
-    let imageURL: String?
-    let positionName: String
+    
+    let imageURL:            String?
+    let imageData:           Data?
+    let positionName:        String
     let positionDescription: String?
-    let minPrice: Decimal
-    let category: String
+    let minPrice:            Decimal
+    let category:            String
+    
 }

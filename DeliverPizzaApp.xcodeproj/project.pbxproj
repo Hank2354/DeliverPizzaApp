@@ -45,6 +45,10 @@
 		41E5650327901A4E009D2574 /* MenuUITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */; };
 		41E5650527904E5C009D2574 /* MenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650427904E5C009D2574 /* MenuDataModel.swift */; };
 		41E5650727904ED0009D2574 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650627904ED0009D2574 /* NetworkError.swift */; };
+		41E5650927910177009D2574 /* ScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650827910177009D2574 /* ScrollDirection.swift */; };
+		41E56510279142F3009D2574 /* Extension CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5650F279142F2009D2574 /* Extension CoreDataManager.swift */; };
+		41E5651327914A72009D2574 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5651127914A72009D2574 /* Product+CoreDataClass.swift */; };
+		41E5651427914A72009D2574 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E5651227914A72009D2574 /* Product+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +92,10 @@
 		41E5650227901A4E009D2574 /* MenuUITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuUITableViewDataSource.swift; sourceTree = "<group>"; };
 		41E5650427904E5C009D2574 /* MenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDataModel.swift; sourceTree = "<group>"; };
 		41E5650627904ED0009D2574 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		41E5650827910177009D2574 /* ScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollDirection.swift; sourceTree = "<group>"; };
+		41E5650F279142F2009D2574 /* Extension CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension CoreDataManager.swift"; sourceTree = "<group>"; };
+		41E5651127914A72009D2574 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = "<group>"; };
+		41E5651227914A72009D2574 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +235,7 @@
 			children = (
 				41B518C0278F58C600C50522 /* Extension UIImage.swift */,
 				41B518C2278F5BD000C50522 /* Extension UIColor.swift */,
+				41E5650F279142F2009D2574 /* Extension CoreDataManager.swift */,
 			);
 			path = "General extensions";
 			sourceTree = "<group>";
@@ -265,10 +274,12 @@
 		41B518DD278FBA0600C50522 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				41E5650E279141DF009D2574 /* CoreData */,
 				41B518C8278F72FF00C50522 /* DiscountItemModel.swift */,
 				41B518DF278FBAEC00C50522 /* ProductModel.swift */,
 				41E5650427904E5C009D2574 /* MenuDataModel.swift */,
 				41E5650627904ED0009D2574 /* NetworkError.swift */,
+				41E5650827910177009D2574 /* ScrollDirection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -281,6 +292,15 @@
 				41B518D0278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		41E5650E279141DF009D2574 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				41E5651127914A72009D2574 /* Product+CoreDataClass.swift */,
+				41E5651227914A72009D2574 /* Product+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +385,7 @@
 				41B518B1278F528B00C50522 /* MenuRouter.swift in Sources */,
 				41E5650127901A41009D2574 /* MenuUITableViewDelegate.swift in Sources */,
 				41B518C6278F70C300C50522 /* HeaderView.swift in Sources */,
+				41E5651327914A72009D2574 /* Product+CoreDataClass.swift in Sources */,
 				41E564FF279019F4009D2574 /* ProductCell.swift in Sources */,
 				41B518AB278F527000C50522 /* MenuViewController.swift in Sources */,
 				41B518D1278F82AB00C50522 /* HeaderUICollectionViewDelegateFlowLayout.swift in Sources */,
@@ -373,10 +394,13 @@
 				41B518C3278F5BD000C50522 /* Extension UIColor.swift in Sources */,
 				41B518CF278F7B8100C50522 /* HeaderUICollectionViewDataSource.swift in Sources */,
 				41B518CB278F7B2800C50522 /* DiscountCell.swift in Sources */,
+				41E56510279142F3009D2574 /* Extension CoreDataManager.swift in Sources */,
 				41B51881278F4D8F00C50522 /* AppDelegate.swift in Sources */,
+				41E5650927910177009D2574 /* ScrollDirection.swift in Sources */,
 				41B518BD278F52CD00C50522 /* MenuAssemblyType.swift in Sources */,
 				41B518E0278FBAEC00C50522 /* ProductModel.swift in Sources */,
 				41B518A2278F515B00C50522 /* MainTabBar.swift in Sources */,
+				41E5651427914A72009D2574 /* Product+CoreDataProperties.swift in Sources */,
 				41B518CD278F7B7800C50522 /* HeaderUICollectionViewDelegate.swift in Sources */,
 				41B5188B278F4D8F00C50522 /* DeliverPizzaApp.xcdatamodeld in Sources */,
 				41B518B3278F529300C50522 /* MenuAssembly.swift in Sources */,

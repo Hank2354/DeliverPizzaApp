@@ -14,9 +14,9 @@ class ProductCell: UITableViewCell {
     
     private var dataTask: URLSessionDataTask?
     
-    var category: String = ""
+    var category:         String  = ""
     
-    var imageURLString: String? = "" {
+    var imageURLString:   String? {
         
         // When will set new image url, will be fetched image and set into imageView
         didSet {
@@ -49,15 +49,33 @@ class ProductCell: UITableViewCell {
         
     }
     
+    var imageData:        Data?   {
+        
+        didSet {
+            
+            guard let imageData = imageData,
+                  let image = UIImage(data: imageData) else {
+                
+                      productImageView.image = .defaultPizza
+                      return
+                      
+            }
+            
+            productImageView.image = image
+            
+        }
+        
+    }
+    
     // MARK: - UI Elements
     lazy var productImageView:   UIImageView             = {
         
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView       .translatesAutoresizingMaskIntoConstraints = false
         
-        imageView.image = .loadPizza
+        imageView       .image = .loadPizza
         
-        imageView.contentMode = .scaleAspectFit
+        imageView       .contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -67,14 +85,14 @@ class ProductCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.textColor = .label
-        label.textAlignment = .left
+        label.font                      = UIFont.boldSystemFont(ofSize: 17)
+        label.textColor                 = .label
+        label.textAlignment             = .left
         
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
+        label.minimumScaleFactor        = 0.5
         
-        label.numberOfLines = 2
+        label.numberOfLines             = 2
         
         return label
     }()
@@ -84,17 +102,17 @@ class ProductCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.boldSystemFont(ofSize: 13)
-        label.textColor = .placeholderText
-        label.textAlignment = .left
+        label.font                      = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor                 = .placeholderText
+        label.textAlignment             = .left
         
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.8
+        label.minimumScaleFactor        = 0.8
         
-        label.textAlignment = .left
+        label.textAlignment             = .left
+        label.numberOfLines             = 0
+        
         label.sizeToFit()
-        
-        label.numberOfLines = 0
         
         return label
     }()
@@ -104,12 +122,14 @@ class ProductCell: UITableViewCell {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
-        button.setTitleColor(.tabBarItemSelectedColor, for: .normal)
-        button.setTitle("от 345 р", for: .normal)
-        button.layer.borderWidth = 1
+        button.titleLabel?.font   = UIFont.systemFont(ofSize: 13)
+        button.layer.borderColor  = UIColor.tabBarItemSelectedColor.cgColor
+        
+        button.layer.borderWidth  = 1
         button.layer.cornerRadius = 6
-        button.layer.borderColor = UIColor.tabBarItemSelectedColor.cgColor
+        
+        button.setTitleColor (.tabBarItemSelectedColor, for: .normal)
+        button.setTitle      ("от 345 р", for: .normal)
         
         return button
     }()
@@ -125,7 +145,7 @@ class ProductCell: UITableViewCell {
     }()
     
     // MARK: - Configuration methods
-    func config() {
+    func config()                              {
         
         addSubview(productImageView)
         addSubview(productTitle)
@@ -136,33 +156,33 @@ class ProductCell: UITableViewCell {
         
         var constraints = [NSLayoutConstraint]()
         
-        constraints.append(productImageView.heightAnchor.constraint(equalTo: productImageView.widthAnchor))
-        constraints.append(productImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15))
-        constraints.append(productImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15))
-        constraints.append(productImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15))
-        constraints.append(productImageView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -15))
+        constraints .append(productImageView   .heightAnchor.constraint   (equalTo: productImageView.widthAnchor))
+        constraints .append(productImageView   .leadingAnchor.constraint  (equalTo: leadingAnchor, constant: 15))
+        constraints .append(productImageView   .topAnchor.constraint      (equalTo: topAnchor, constant: 15))
+        constraints .append(productImageView   .bottomAnchor.constraint   (equalTo: bottomAnchor, constant: -15))
+        constraints .append(productImageView   .trailingAnchor.constraint (equalTo: centerXAnchor, constant: -15))
         
-        constraints.append(productTitle.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5))
-        constraints.append(productTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5))
-        constraints.append(productTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20))
+        constraints .append(productTitle       .leadingAnchor.constraint  (equalTo: centerXAnchor, constant: 5))
+        constraints .append(productTitle       .trailingAnchor.constraint (equalTo: trailingAnchor, constant: -5))
+        constraints .append(productTitle       .topAnchor.constraint      (equalTo: topAnchor, constant: 20))
         
-        constraints.append(priceButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20))
-        constraints.append(priceButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20))
-        constraints.append(priceButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.23))
-        constraints.append(priceButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.17))
+        constraints .append(priceButton        .bottomAnchor.constraint   (equalTo: bottomAnchor, constant: -20))
+        constraints .append(priceButton        .trailingAnchor.constraint (equalTo: trailingAnchor, constant: -20))
+        constraints .append(priceButton        .widthAnchor.constraint    (equalTo: widthAnchor, multiplier: 0.23))
+        constraints .append(priceButton        .heightAnchor.constraint   (equalTo: heightAnchor, multiplier: 0.17))
         
-        constraints.append(productDescription.leadingAnchor.constraint(equalTo: productTitle.leadingAnchor))
-        constraints.append(productDescription.trailingAnchor.constraint(equalTo: productTitle.trailingAnchor))
-        constraints.append(productDescription.topAnchor.constraint(equalTo: productTitle.bottomAnchor, constant: 5))
-        constraints.append(productDescription.bottomAnchor.constraint(lessThanOrEqualTo: priceButton.topAnchor, constant: -2))
+        constraints .append(productDescription .leadingAnchor.constraint  (equalTo: productTitle.leadingAnchor))
+        constraints .append(productDescription .trailingAnchor.constraint (equalTo: productTitle.trailingAnchor))
+        constraints .append(productDescription .topAnchor.constraint      (equalTo: productTitle.bottomAnchor, constant: 5))
+        constraints .append(productDescription .bottomAnchor.constraint   (lessThanOrEqualTo: priceButton.topAnchor, constant: -2))
         
-        constraints.append(activityIndicator.centerXAnchor.constraint(equalTo: productImageView.centerXAnchor))
-        constraints.append(activityIndicator.bottomAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: -20))
+        constraints .append(activityIndicator  .centerXAnchor.constraint  (equalTo: productImageView.centerXAnchor))
+        constraints .append(activityIndicator  .bottomAnchor.constraint   (equalTo: productImageView.bottomAnchor, constant: -20))
         
         NSLayoutConstraint.activate(constraints)
     }
     
-    fileprivate func loadImage(imageURL: URL) {
+    fileprivate func loadImage(imageURL: URL)  {
         
         // init data task
         dataTask = URLSession.shared.dataTask(with: imageURL, completionHandler: { data, response, error in
@@ -195,7 +215,7 @@ class ProductCell: UITableViewCell {
         
     }
     
-    override func prepareForReuse() {
+    override func prepareForReuse()            {
         super.prepareForReuse()
         
         dataTask?.cancel()

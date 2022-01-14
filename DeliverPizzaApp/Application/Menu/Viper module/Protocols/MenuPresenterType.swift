@@ -9,17 +9,21 @@ import Foundation
 
 protocol MenuPresenterType: AnyObject {
     
-    var view: MenuViewControllerType? { get set }
+    var view:       MenuViewControllerType? { get set }
     
-    var interactor: MenuInteractorType? { get set }
+    var interactor: MenuInteractorType?     { get set }
     
-    var router: MenuRouterType? { get set }
+    var router:     MenuRouterType?         { get set }
     
-    func discountDataIsFetched(discounts: DiscountItemModels)
+    func discountDataIsFetched  (discounts: DiscountItemModels)
     
-    func menuDataIsFetched(tableItems: [ProductModel]?, categoryItems: [String]?, error: NetworkError?)
+    func menuDataIsFetched      (tableItems: [ProductModel]?,
+                                 categoryItems: [String]?,
+                                 error: NetworkError?)
     
-    func categoryDidSelected(category: String)
+    func categoryDidSelected    (category: String)
     
-    func viewDidLoaded()
+    func didScrollToNewCategory (category: String)
+    
+    func viewDidLoaded          ()
 }

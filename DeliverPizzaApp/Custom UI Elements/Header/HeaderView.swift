@@ -98,17 +98,27 @@ class HeaderView: UIView {
 
         var constraints = [NSLayoutConstraint]()
         
-        constraints.append(categoriesCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor))
-        constraints.append(categoriesCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor))
-        constraints.append(categoriesCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor))
-        constraints.append(categoriesCollectionView.heightAnchor.constraint(equalToConstant: 70))
+        constraints .append(categoriesCollectionView .leadingAnchor.constraint  (equalTo: self.leadingAnchor))
+        constraints .append(categoriesCollectionView .trailingAnchor.constraint (equalTo: self.trailingAnchor))
+        constraints .append(categoriesCollectionView .bottomAnchor.constraint   (equalTo: self.bottomAnchor))
+        constraints .append(categoriesCollectionView .heightAnchor.constraint   (equalToConstant: 70))
         
-        constraints.append(discountsCollectionView.topAnchor.constraint(equalTo: self.topAnchor))
-        constraints.append(discountsCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor))
-        constraints.append(discountsCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor))
-        constraints.append(discountsCollectionView.bottomAnchor.constraint(equalTo: categoriesCollectionView.topAnchor))
+        constraints .append(discountsCollectionView  .topAnchor.constraint      (equalTo: self.topAnchor))
+        constraints .append(discountsCollectionView  .leadingAnchor.constraint  (equalTo: self.leadingAnchor))
+        constraints .append(discountsCollectionView  .trailingAnchor.constraint (equalTo: self.trailingAnchor))
+        constraints .append(discountsCollectionView  .bottomAnchor.constraint   (equalTo: categoriesCollectionView.topAnchor))
         
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    func selectNewCategory(categoryName: String)                {
+        
+        guard let currentItemIndex = categories.firstIndex(of: categoryName) else { return }
+        
+        let currentIndexPath = IndexPath(item: currentItemIndex, section: 0)
+        
+        categoriesCollectionView.selectItem(at: currentIndexPath, animated: true, scrollPosition: .centeredHorizontally)
+        
     }
     
     // MARK: - INIT

@@ -12,8 +12,6 @@ class EmptyViewController: UIViewController {
     
     override func viewDidLoad() {
         view.backgroundColor = .white
-        
-        
     }
     
 }

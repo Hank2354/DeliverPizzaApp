@@ -12,6 +12,6 @@ typealias MenuEntryPoint = MenuViewControllerType & UIViewController
 
 protocol MenuRouterType: AnyObject {
     
-    var entryPoint: MenuEntryPoint? { get set }
+    var entryPoint:      MenuEntryPoint? { get set }
     
 }

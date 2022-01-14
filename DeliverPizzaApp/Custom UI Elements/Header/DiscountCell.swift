@@ -30,28 +30,28 @@ class DiscountCell: UICollectionViewCell {
     }()
     
     // MARK: - Configuration methods
-    func config() {
+    func config()                             {
         
         addSubview(discountImageView)
         
         NSLayoutConstraint.activate([
             
-            discountImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            discountImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            discountImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            discountImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            discountImageView .leadingAnchor.constraint  (equalTo: self.leadingAnchor),
+            discountImageView .trailingAnchor.constraint (equalTo: self.trailingAnchor),
+            discountImageView .topAnchor.constraint      (equalTo: self.topAnchor),
+            discountImageView .bottomAnchor.constraint   (equalTo: self.bottomAnchor)
             
         ])
     }
     
     // MARK: - INIT
-    override init(frame: CGRect) {
+    override init(frame: CGRect)              {
         super .init(frame: frame)
         
         config()
     }
     
-    required init?(coder: NSCoder) {
+    required init?(coder: NSCoder)            {
         fatalError("init(coder:) has not been implemented")
     }
     

@@ -26,14 +26,18 @@ class NetworkManager {
             
             guard let data = data, error == nil else {
                 
-                let httpResponse = response as! HTTPURLResponse
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    completion(.failure(.noInternetConnection))
+                    return
+                }
                 
                 switch httpResponse.statusCode {
                     
-                case 500: completion(.failure(.serverNotResponding))
-                case 502: completion(.failure(.serverNotResponding))
-                case 504: completion(.failure(.serverNotResponding))
-                default:  completion(.failure(.noInternetConnection))
+                case 500:  completion(.failure(.serverNotResponding))
+                case 502:  completion(.failure(.serverNotResponding))
+                case 504:  completion(.failure(.serverNotResponding))
+                case 1009: completion(.failure(.noInternetConnection))
+                default:   completion(.failure(.noInternetConnection))
                     
                 }
                 
@@ -77,7 +81,7 @@ class NetworkManager {
             
         } catch let error as NSError {
             
-            print("ERROR: \(error.localizedDescription)")
+            print("\(error.localizedDescription)")
             return nil
             
         }
