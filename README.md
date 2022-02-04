@@ -1,4 +1,4 @@
-![Header](https://i.yapx.ru/QGfcJ.png)
+![Header](https://i.yapx.ru/QceS1.png)
 
 # DeliverPizzaApp
 Application for test task for the position Junior iOS Developer
