@@ -3,6 +3,10 @@
 # DeliverPizzaApp
 Application for test task for the position Junior iOS Developer
 
+## Important mark: 
+The service for the API used in the app has been disabled. For information, please go to the presentation section.
+
+## Head
 - [About project](#About-project-warning)
     - [Requirements](#Requirements)
     - [API](#Main-block)
