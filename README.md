@@ -1,4 +1,4 @@
-![Header](https://i.yapx.ru/QceS1.png)
+![Header](https://i.imgur.com/MhlfmbX.png)
 
 # DeliverPizzaApp
 Application for test task for the position Junior iOS Developer
@@ -109,5 +109,5 @@ Installing dependencies is not required. The application uses only standard Appl
 
 Screenshots:
 
-| ![](https://i.yapx.ru/QGgT8.png) | ![](https://i.yapx.ru/QGgUD.png) | ![](https://i.yapx.ru/QGgUL.png) | ![](https://i.yapx.ru/QGgUP.png) | 
+| ![](https://i.imgur.com/AyW83Dc.png) | ![](https://i.imgur.com/67N2JFG.png) | ![](https://i.imgur.com/JTAycsy.png) | ![](https://i.imgur.com/i5zC3NQ.png) | 
 |----:|:----:|:----:|:----|
